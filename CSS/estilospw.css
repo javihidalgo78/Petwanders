@@ -1,0 +1,496 @@
+
+/* Variables para los colores y el radio de los bordes */
+:root {
+    --white: #ffffff;
+    --dark:#19d1c1;
+    --primary: #00B341;
+    --secundary: #DE9100;
+    --secundaryLight: #be8d33;
+    
+}
+/************************************************************************/
+
+/* tipo y tamaño base de la fuente */
+html {
+    font-family: "Roboto", sans-serif;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+/************************************************************************/
+
+
+
+/************************************************************************/
+
+/* tamaños para los textos */
+h1 {
+    margin: 0.5rem;
+    text-align: center;
+    font-size: 4rem;
+    color: var(--dark);
+    font-weight: bolder;
+    font-family: 'Arial Narrow Bold', sans-serif;
+}
+
+h1 span {
+    font-size: 3rem;
+    background-image:url("../Images/Harness2.JPEG");
+
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+p {
+  font-family: "Dancing Script", cursive;
+  font-style: normal;
+  font-size:x-large;
+}
+
+/************************************************************************/
+
+
+  /* barra de navegación  */
+.navegacion {
+    background-color: var(--primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position:fixed;
+    width: 100%;
+}
+
+/* 
+    @media query para modificar reglas:
+    Se aplican las reglas que hay dentro de la media query
+    si la ventana del navegador mide un mínimo de 480px
+    */
+@media (min-width: 480px) {
+    .navegacion {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+/* enlaces de la barra de navegación */
+.navegacion a {
+    padding: 1rem;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 1.5;
+}
+/* El link cambia al posar el cursor encima*/
+.navegacion a:hover {
+    background-color: var(--secundary);
+    color: var(--dark);
+}
+.hero content{
+    height: 100vh;
+    background-position: center;
+    color:antiquewhite;
+    display: flex;
+    position: relative;
+    background-image: url(../Images/Harness6.JPEG);
+}
+/********************************************************/
+img{
+    width: 100%;
+    
+}
+/* cabecera */
+.contenido {
+
+    setInterval(showNextSlide, 6000); 
+    /* Cambia cada 4 segundos */
+ 
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+   
+}
+
+.section-banner{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+
+    /* alinear hijos horizontal y vertical */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-banner img {
+    width: 6%;
+    margin-right: 0.5rem;
+}
+
+.section-banner h2 {
+    color: var(--white);
+}
+
+.section-banner p {
+    font-weight: 600;
+}
+
+    /* alinear el icono y el párrafo */
+.center-vertical {
+    display: flex;
+    align-items: center;
+}
+
+.boton {
+    background-color: var(--secundary);
+    color: var(--white);
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: var(--radio-borde);
+    width: 90%;
+    text-align: center;
+}
+
+
+/* Media query para que el botón no ocupe todo el ancho
+    para un mínimo de pantalla de 480px*/
+@media (min-width: 480px) {
+    .boton {
+        width: auto;
+    }
+}
+
+/**********************************************************/
+
+
+/*contenedor principal
+    contiene todo el main*/
+.container {
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: var(--radio-borde);
+    margin-top: 1rem;
+    text-align: center;
+}
+.fondoimagen {
+    background-image:url(../Images/Leashes.JPEG);
+    background-size: cover;
+
+}
+/* media query
+    si la pantalla mide un mínimo de 1200px (pc)
+    establece un ancho fijo del contenedor y lo centra
+*/
+@media (min-width: 1200px) {
+    .container {
+        width: 1100px;
+        margin: 2rem auto;
+    }
+}
+
+/* clases que definen las sombras */
+.shadow {
+    box-shadow: 3px 10px 19px -4px rgba(0,0,0,0.57);
+}
+
+.shadow-small {
+    box-shadow: 1px 1px 8px 0px rgba(194,194,194,0.4);
+}
+
+/* esta clase envuelve tres secciones dentro
+establece que esas secciones se alineen en una columna*/
+.contenedor-servicios {
+    display: flex;
+    flex-direction: column;   
+    gap: 10px;
+}
+
+/* media query para pantallas con un mínimo de 768px
+    establece que los hijos se alineen en una fila
+*/
+@media (min-width: 768px){
+    .contenedor-servicios{
+        flex-direction: row;
+    }
+}
+
+.div-servicios{
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+}
+.div-servicios h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+.div-servicios img {
+    height: 7rem;
+    width: 7rem;
+    background-color: var(--secundary);
+    padding: 1rem;
+    border-radius: 50%;
+}
+.div-servicios p {
+    line-height: 2;
+    margin: 1rem;
+    text-align: justify;
+    font-size: 1.3rem;
+}
+.section-servicios {
+    flex: 1;
+}
+
+.section-servicios h3 {
+    color: var(--primary);
+    border-radius: var(--radio-borde);
+}
+
+.icono {
+    height: 7rem;
+    width: 7rem;
+    background-color: var(--secundary);
+    border-radius: 50%;
+    padding: 1rem;
+}
+
+/* separa las líneas de los párrafos al doble de la medida por defecto */
+.section-servicios p {
+    line-height: 2;
+    margin: 1rem;
+    text-align: justify;
+}
+
+/************************************************************************/
+
+/* formulario */
+
+.formulario {
+    background-color: var(--dark);
+    /* width mínimo de 80rem o 100% */
+    width: min(80rem, 100%);
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: var(--radio-borde);
+}
+
+
+.formulario legend {
+    margin: 0 auto 2rem auto;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--secundary);
+}
+
+.container-input {
+    margin-bottom: 1rem;
+
+}
+
+.container-input label {
+    color: var(--white);
+    font-weight: bold;
+    font-size: medium;
+    margin-bottom: 0.5rem;
+    display: block;
+    text-align: center;
+    background-color: #bf6a24;
+}
+
+
+.container-input textarea {
+    width: 60%;
+    padding: 1rem;
+    border-radius: var(--radio-borde);
+    border: #0c0d0c;
+
+}
+
+.enviar {
+    width:20%;
+    border: none;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.container-input textarea {
+    height: 15rem;
+}
+
+/************************************************************************/
+
+/* footer */
+
+footer {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+footer span {
+    color: var(--secundaryLight);
+    font-size: 3rem;
+}
+.card-grid{
+    display: flex;
+    grid-auto-flow: var(--radio-borde);
+    margin: 10;
+    padding:10;
+    box-sizing: border-box;
+    border-radius: 4%;
+
+}
+.div-class{
+    width:20rem;
+
+}
+.button {
+    background-color: blue;
+    transition: background-color 2s ease;
+  }
+ .form button{
+    background-color: var(--primary);
+    color: antiquewhite;
+    border: none;
+    cursor: pointer;
+    transition: background-color;
+ } 
+  .button:hover {
+    background-color: red;
+
+  }
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    border-radius: 4%;
+}    
+@keyframes animacion  {
+    from{transform: translateY(0px);}
+    to{transform: translateY(-5px)}
+}
+.card {
+    transition:  2s ease;
+    overflow: hidden;
+    box-shadow: 3px 4px 15px 0px rgb(118, 115, 115);
+    border-radius: 10px;
+    gap: 4rem;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+
+}
+.enviar {
+    transition: background-color 2s ease;
+  }
+  
+.enviar:hover {
+    background-color: rgb(42, 126, 99);
+
+
+  }
+.container{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 3px;
+}
+.container-contacto{
+    background-color: #dcb227;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 3px;
+    margin: auto;
+    flex-direction: column;
+}
+
+
+.container-input{
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.class{
+    background-image: url(../Images/cafeteria.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:800px;
+  }
+
+.class h1{
+    text-align: center;
+    color: rgb(156, 180, 22);
+    position: absolute;
+    top: 50%;
+    left:50%;
+    font-size: 2rem;
+}
+
+.section-banner h1{
+    text-align: center;
+    color: rgb(51, 112, 112);
+    position: absolute;
+    top: 50%;
+    left:50%;
+    font-size: 4rem;
+}
+
+.center-vertical h2{
+    text-align: center;
+    color: rgb(47, 91, 91);
+    position: absolute;
+    top: 50%;
+    left:50%;
+    font-size: 2rem;
+}
+
+.social-links {
+    color: rgb(231, 114, 24);
+    margin: 0 0.5rem;
+    font-size: 5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    text-align: center;
+}
+
+.social-links a:hover {
+    color:var(--primary);
+    cursor: pointer;
+}
+
+  .slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:fit-content;
+    height:fit-content;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    object-fit: cover;
+    flex: content;
+    
+  }
+
+  .slider .slide.active {
+    opacity: 1;
+  }
+ 
+	/* Responsive */
+	@media (max-width: 800px) {
+	  .slider .slide
+		height: 550px;
+
+	}
+  
