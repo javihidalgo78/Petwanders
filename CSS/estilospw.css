@@ -261,7 +261,7 @@ img{
 /* cabecera */
 .contenido {
 
-    setInterval: (showNextSlide, 8000); 
+   
     /* Cambia cada 8 segundos */
     background-repeat: no-repeat;
     background-size: cover;
@@ -645,11 +645,11 @@ footer span {
  
 	/* Responsive */
 	@media (max-width: 800px) {
-	  .slider .slide
-		height: 550px;
+	  .slider {
+		height: 550px;}
 
 	}
-    <>
+   
     body {
       margin: 0;
       background-color: #ffffff;
