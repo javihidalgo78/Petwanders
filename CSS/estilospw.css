@@ -371,9 +371,7 @@ establece que esas secciones se alineen en una columna*/
     gap: 10px;
 }
 
-/* media query para pantallas con un mínimo de 768px
-    establece que los hijos se alineen en una fila
-*/
+
 @media (min-width: 768px){
     .contenedor-servicios{
         flex-direction: row;
