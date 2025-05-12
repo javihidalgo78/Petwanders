@@ -237,19 +237,91 @@
       loadCart();
     });
 
-    particlesJS('particles-js', {
-  particles: {
-    number: { value: 40 },
-    color: { value: '#FFD700' },
-    shape: { type: 'circle' },
-    opacity: { value: 0.5 },
-    size: { value: 3 },
-    move: { enable: true, speed: 1 }
-  },
-  interactivity: {
-    events: {
-      onhover: { enable: true, mode: 'repulse' }
-    }
-  }
-});
 
+
+const productos = [
+  {
+    id: "harness-mokka",
+    nombre: "Mokka",
+    descripcion: "Nuestro diseño étnico personalizado.",
+    precio: 29.99,
+    tallas: ["XS", "S", "M", "L"],
+    imagen: "images/Harness.JPEG"
+  },
+  {
+    id: "harness-chocolate",
+    nombre: "Chocolate",
+    descripcion: "Elegante y con estilo propio.",
+    precio: 32.99,
+    tallas: ["XS", "S", "M", "L"],
+    imagen: "images/Harness2.JPEG"
+  },
+  {
+    id: "harness-electric",
+    nombre: "Electric",
+    descripcion: "Colores vibrantes para destacar.",
+    precio: 34.99,
+    tallas: ["XS", "S", "M", "L"],
+    imagen: "images/Harness4.JPEG"
+  },
+  {
+    id: "white-fountain",
+    nombre: "White Fountain",
+    descripcion: "Fuente de agua con filtro purificador.",
+    precio: 42.50,
+    capacidades: ["2L", "3L"],
+    imagen: "Images/Fuenteblanca.JPEG"
+  },
+  {
+    id: "green-fountain",
+    nombre: "Green Fountain",
+    descripcion: "Fuente de agua con filtro purificador.",
+    precio: 42.50,
+    capacidades: ["2L", "3L"],
+    imagen: "Images/Fuenteverde.JPEG"
+  },
+  {
+    id: "auto-feeder",
+    nombre: "Automatic Feeder",
+    descripcion: "Comedero automático para mascotas.",
+    precio: 59.99,
+    capacidades: ["3L", "5L"],
+    imagen: "Images/Petfeeder.JPEG"
+  }
+];
+
+const contenedor = document.getElementById('productos-container');
+
+  productos.forEach(producto => {
+    const opciones = (producto.tallas || producto.capacidades || []).map(talla =>
+      `<option value="${talla}">${talla}</option>`
+    ).join("");
+
+    const tipoSelect = producto.tallas ? "talla" : "capacidad";
+
+    const cardHTML = `
+      <div class="card">
+        <img src="${producto.imagen}" alt="${producto.nombre}">
+        <div>
+          <h3>${producto.nombre}</h3>
+          <p>${producto.descripcion}</p>
+          <div class="buy-options">
+            <select class="size-select" data-product-id="${producto.id}">
+              <option value="">Seleccionar ${tipoSelect}</option>
+              ${opciones}
+            </select>
+            <button
+              class="add-to-cart-btn"
+              data-product-id="${producto.id}"
+              data-product-name="${producto.nombre}"
+              data-product-price="${producto.precio}"
+              data-product-img="${producto.imagen}">
+              Añadir al Carrito - ${producto.precio.toFixed(2)}€
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    contenedor.innerHTML += cardHTML;
+  });

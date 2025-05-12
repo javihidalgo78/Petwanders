@@ -577,7 +577,7 @@ footer span {
 
 .banner img {
       max-width: 200px;
-      height: auto;
+      height: fit-content;
     }
 
     /* Barra de navegación */
@@ -669,8 +669,9 @@ nav a {
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
       cursor: pointer;
       z-index: 1;
+      margin: 28px 2px;
     }
-    
+   
     .cart-icon i {
       font-size: 24px;
       color: #333;
@@ -906,12 +907,6 @@ nav a {
       }
     }
 
-    #particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
 
 .banner {
   position: relative;
