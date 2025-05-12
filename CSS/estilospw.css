@@ -8,13 +8,17 @@
     --secundaryLight: #be8d33;
     
 }
-/*****************************************************/
+
+*{
+  box-sizing: border-box;
+}
 
 /* tipo y tamaño base de la fuente */
 html {
     font-family: "Roboto", sans-serif;
     font-size: 62.5%;
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 /* Cabecera*/
 
@@ -40,7 +44,7 @@ html {
   padding: 20px 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-            /*Imagen*/
+/*Imagen del banner*/
 .banner img {
   margin-top: 30px;
   max-width: 200px;
@@ -74,6 +78,7 @@ nav a:hover {
 .contenido {
   padding: 40px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 /* Formulario de contacto */
@@ -258,11 +263,10 @@ img{
     position: relative;
     background-image: url(../Images/Harness6.JPEG);
 }
-/* cabecera */
-.contenido {
 
-   
-    /* Cambia cada 8 segundos */
+/* cabecera */
+.contenido {  
+/* Cambia cada 8 segundos */
     background-repeat: no-repeat;
     background-size: cover;
     height: 450px;
@@ -298,7 +302,7 @@ img{
     font-weight: 600;
 }
 
-    /* alinear el icono y el párrafo */
+/* alinear el icono y el párrafo */
 .center-vertical {
     display: flex;
     align-items: center;
@@ -335,7 +339,7 @@ img{
     background-color: var(--white);
     padding: 1rem;
     border-radius: var(--radio-borde);
-    margin-top: 1rem;
+    margin-top: 5rem;
     text-align: center;
 }
 .fondoimagen {
@@ -350,7 +354,7 @@ img{
 @media (min-width: 1200px) {
     .container {
         width: 1100px;
-        margin: 2rem auto;
+        margin: 5rem auto;
     }
 }
 
@@ -462,7 +466,7 @@ footer span {
     width:20rem;
 }
 
- 
+/* Animación de las cards para que se muevan al poner el cursor*/ 
 @keyframes animacion  {
     from{transform: translateY(0px);}
     to{transform: translateY(-5px)}
@@ -559,46 +563,25 @@ footer span {
     cursor: pointer;
 }
 
-  .slider .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width:fit-content;
-    height:fit-content;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    object-fit: cover;
-    flex: content;
-    
-  }
 
-  .slider .slide.active {
-    opacity: 1;
-  }
- 
-	/* Responsive */
-	@media (max-width: 800px) {
-	  .slider {
-		height: 550px;}
-
-	}
    
-    body {
+.body {
       margin: 0;
       background-color: #ffffff;
       font-family: Arial, sans-serif;
+      box-sizing: border-box;
     }
 
     /* Banner con logo */
     
 
-    .banner img {
+.banner img {
       max-width: 200px;
       height: auto;
     }
 
     /* Barra de navegación */
-    nav {
+nav {
       background-color: #f5f5f5;
       display: flex;
       justify-content: center;
@@ -608,7 +591,7 @@ footer span {
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
 
-    nav a {
+nav a {
       text-decoration: none;
       color: #333;
       font-weight: bold;
@@ -618,9 +601,10 @@ footer span {
 
 
     /* Contenido principal */
-    .contenido {
+.contenido {
       padding: 40px;
       text-align: center;
+      box-sizing: border-box;
     }
 
     /* Formulario de contacto */
@@ -670,4 +654,289 @@ footer span {
       background-color: #005fa3;
     }
 
-   
+     /* Estilos para el carrito de compras */
+    .cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #fff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 1;
+    }
+    
+    .cart-icon i {
+      font-size: 24px;
+      color: #333;
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: #ff6b6b;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+    }
+    
+    .cart-container {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 350px;
+      height: 100vh;
+      background-color: white;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: right 0.3s ease;
+      padding: 10px;
+      overflow-y: auto;
+    }
+    
+    .cart-container.active {
+      right: 0;
+    }
+    
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .close-cart {
+      cursor: pointer;
+      font-size: 20px;
+    }
+    
+    .cart-items {
+      margin-bottom: 20px;
+    }
+    
+    .cart-item {
+      display: flex;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .cart-item img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      margin-right: 15px;
+    }
+    
+    .item-details {
+      flex-grow: 1;
+    }
+    
+    .item-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .item-size, .item-price {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+    
+    .item-actions {
+      display: flex;
+      align-items: center;
+    }
+    
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      margin-right: 15px;
+    }
+    
+    .quantity-btn {
+      width: 25px;
+      height: 25px;
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .quantity {
+      margin: 0 10px;
+    }
+    
+    .remove-item {
+      color: #ff6b6b;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 16px;
+    }
+    
+    .cart-footer {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    .cart-total {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    .checkout-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+    
+    .checkout-btn:hover {
+      background-color: #45a049;
+    }
+    
+    /* Estilos para los botones de compra en las cards */
+    .card {
+      position: relative;
+      padding-bottom: 60px;
+    }
+    
+    .buy-options {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+    }
+    
+    .size-select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 8px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+    
+    .add-to-cart-btn {
+      width: 100%;
+      padding: 8px 0;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .add-to-cart-btn:hover {
+      background-color: #45a049;
+    }
+    
+    /* Backdrop para cuando el carrito está abierto */
+    .backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 999;
+      display: none;
+    }
+    
+    .backdrop.active {
+      display: block;
+    }
+    
+ /* Estilos para el slider */
+    .slider {
+      position: relative;
+      height: 400px;
+      margin: 0 auto;
+      margin-bottom: 10rem;
+      overflow: hidden;
+
+    }
+    
+    .slider .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      object-fit: cover;
+    }
+    
+    .slider .slide.active {
+      opacity: 1;
+      
+    }
+    
+    /* Responsive */
+    @media (max-width: 600px) {
+      .slider {
+        height: 250px;
+      }
+      
+      .cart-container {
+        width: 85%;
+      }
+    }
+
+    #particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.banner {
+  position: relative;
+  text-align: center;
+  height: 300px;
+  overflow: hidden;
+}
+
+.banner img {
+  position: relative;
+  z-index: 1;
+  max-height: 100%;
+}
+
+@keyframes fadeZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.banner img {
+  animation: fadeZoomIn 1.5s ease-out;
+}
