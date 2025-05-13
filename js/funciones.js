@@ -39,6 +39,7 @@
       const cartTotal = document.getElementById('cart-total');
       const checkoutBtn = document.getElementById('checkout-btn');
       const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+      const showProduct = document.querySelectorAll('.show-product');
       
       // Carrito de compras
       let cart = [];
@@ -218,6 +219,7 @@
           addToCart(productId, productName, productPrice, productImage, productSize);
         });
       });
+
       
       // Función para finalizar compra
       checkoutBtn.addEventListener('click', function() {
@@ -238,7 +240,6 @@
     });
 
 
-
 const productos = [
   {
     id: "harness-mokka",
@@ -247,7 +248,13 @@ const productos = [
     precio: 29.99,
     tallas: ["XS", "S", "M", "L"],
     imagen: "images/Harness.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
+    features: `• Material resistente y transpirable. 
+• Ajuste ergonómico para mayor comodidad. 
+• Tecnología anti-tirones. 
+• Fácil de poner y quitar. 
+• Diseñado para evitar rozaduras. 
+• Estilo único inspirado en patrones étnicos.`
   },
   {
     id: "harness-chocolate",
@@ -256,7 +263,13 @@ const productos = [
     precio: 32.99,
     tallas: ["XS", "S", "M", "L"],
     imagen: "images/Harness2.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
+    features: `• Tela acolchada de alta calidad. 
+• Hebillas de liberación rápida. 
+• Revestimiento antiolor. 
+• Diseño elegante y sofisticado. 
+• Material ecológico certificado. 
+• Costuras reforzadas.`
   },
   {
     id: "harness-electric",
@@ -265,7 +278,13 @@ const productos = [
     precio: 34.99,
     tallas: ["XS", "S", "M", "L"],
     imagen: "images/Harness4.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
+    features: `• Colores reflectantes para visibilidad nocturna. 
+• Malla transpirable para climas cálidos. 
+• Cierre de seguridad triple. 
+• Libre de sustancias tóxicas. 
+• Ajuste anatómico. 
+• Producto vegano.`
   },
   {
     id: "white-fountain",
@@ -274,7 +293,13 @@ const productos = [
     precio: 42.50,
     capacidades: ["2L", "3L"],
     imagen: "Images/Fuenteblanca.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
+    features: `• Sistema de triple filtrado de carbón activo. 
+• Silenciosa y eficiente. 
+• Fácil de desmontar y limpiar. 
+• Plástico libre de BPA. 
+• Promueve hidratación saludable. 
+• Consumo energético bajo.`
   },
   {
     id: "green-fountain",
@@ -283,7 +308,13 @@ const productos = [
     precio: 42.50,
     capacidades: ["2L", "3L"],
     imagen: "Images/Fuenteverde.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
+    features: `• Filtro reemplazable ecológico. 
+• Diseño moderno en color verde. 
+• Motor ultra silencioso. 
+• Antideslizante y estable. 
+• Ideal para gatos y perros pequeños. 
+• Ahorro energético automático.`
   },
   {
     id: "auto-feeder",
@@ -292,7 +323,13 @@ const productos = [
     precio: 59.99,
     capacidades: ["3L", "5L"],
     imagen: "Images/Petfeeder.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
+    features: `• Programación de horarios de comida. 
+• Pantalla digital intuitiva. 
+• Control por aplicación móvil. 
+• Contenedor hermético para preservar frescura. 
+• Fácil recarga y limpieza. 
+• Fabricado con materiales duraderos y reciclables.`
   },
   {
     id: "correas",
@@ -301,28 +338,47 @@ const productos = [
     precio: 12.99,
     colores: ["Azul", "Verde", "Naranja", "Morado", "Negro"],
     imagen: "images/Leashes.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
+    features: `• Nylon reforzado de alta resistencia. 
+• Mosquetón de acero inoxidable. 
+• Colores resistentes al sol. 
+• Longitud ajustable. 
+• Fácil de lavar. 
+• Compatibles con cualquier arnés.`
   },
-    {
+  {
     id: "arenero",
     nombre: "Arenero Autolimpiable",
     descripcion: "Tu casa libre de malos olores, 1 semana sin necesidad de limpiar la arena.",
     precio: 249.99,
     capacidades: ["90 litros"],
     imagen: "images/Catlitterbox.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
+    features: `• Tecnología de auto-limpieza inteligente. 
+• Control de olores con filtro de carbono. 
+• Material antibacteriano. 
+• Bandeja extraíble para fácil limpieza. 
+• Bajo consumo eléctrico. 
+• Apto para gatos grandes.`
   },
-      {
+  {
     id: "waterfeeder",
     nombre: "Fuente de agua y Comedero",
-    descripcion: "Solución 2 en 1 para tus mascotas, proporciona agua filtrada y alimento para 2 semanas",
+    descripcion: "Solución 2 en 1 para tus mascotas, proporciona agua filtrada y alimento para 2 semanas.",
     precio: 79.99,
     capacidades: ["6L + 3L"],
     imagen: "images/Waterfeeder2in1.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
-  },
-
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
+    features: `• Combinación de bebedero y comedero. 
+• Material de grado alimenticio libre de BPA. 
+• Filtro de agua reemplazable. 
+• Fácil recarga superior. 
+• Diseño compacto y elegante. 
+• Autonomía de hasta 15 días.`
+  }
 ];
+
+
 
 const contenedor = document.getElementById('productos-container');
 
@@ -350,7 +406,15 @@ productos.forEach(producto => {
 
   const cardHTML = `
     <div class="card">
-      <img src="${producto.imagen}" alt="${producto.nombre}">
+    <a 
+      data-product-id="${producto.id}"
+      data-product-name="${producto.nombre}"
+      data-product-price="${producto.precio}"
+      data-product-img="${producto.imagen}"
+     class="show-product">
+    <img src="${producto.imagen}" alt="${producto.nombre}">
+    </a>
+      
       <div>
         <h3>${producto.nombre}</h3>
         <p>${producto.descripcion}</p>
@@ -378,4 +442,113 @@ productos.forEach(producto => {
   `;
 
   contenedor.innerHTML += cardHTML;
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('product-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalImage = document.getElementById('modal-image');
+  const modalDescription = document.getElementById('modal-description');
+  const modalPrice = document.getElementById('modal-price');
+  const modalOptions = document.getElementById('modal-options');
+  const modalFeatures = document.getElementById('modal-features')
+  const closeModalBtn = document.querySelector('.close-modal');
+
+  // Abrir modal al hacer clic en imagen
+  document.querySelectorAll('.show-product').forEach(enlace => {
+    enlace.addEventListener('click', function () {
+      const productId = this.dataset.productId;
+      const producto = productos.find(p => p.id === productId);
+
+      if (!producto) return;
+
+      modalTitle.textContent = producto.nombre;
+      modalImage.src = producto.imagen;
+      modalImage.alt = producto.nombre;
+      modalDescription.textContent = producto.descripcion;
+      modalPrice.textContent = `Precio: ${producto.precio.toFixed(2)}€`;
+      modalFeatures. textContent = producto.features;
+
+      let opcionesTexto = '';
+      if (producto.tallas) {
+        opcionesTexto = 'Tallas disponibles: ' + producto.tallas.join(', ');
+      } else if (producto.capacidades) {
+        opcionesTexto = 'Capacidades disponibles: ' + producto.capacidades.join(', ');
+      } else if (producto.colores) {
+        opcionesTexto = 'Colores disponibles: ' + producto.colores.join(', ');
+      }
+      modalOptions.textContent = opcionesTexto;
+
+      modal.style.display = 'flex';
+    });
+  });
+
+  // Cerrar modal
+  closeModalBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+});
+
+function convertirFeaturesALista(featuresTexto) {
+  return `<ul style="padding-left: 1.2em; margin-top: 0.5em;">${
+    featuresTexto
+      .split(/\r?\n/)
+      .filter(linea => linea.trim().startsWith("•"))
+      .map(linea => `<li>${linea.replace(/^•\s*/, "")}</li>`)
+      .join("")
+  }</ul>`;
+}
+
+
+// Función para convertir el texto de características en una lista HTML
+function convertirFeaturesALista(featuresTexto) {
+  return `<ul style="padding-left: 1.2em; margin-top: 0.5em;">${
+    featuresTexto
+      .split(/\r?\n/)
+      .filter(linea => linea.trim().startsWith("•"))
+      .map(linea => `<li>${linea.replace(/^•\s*/, "")}</li>`)
+      .join("")
+  }</ul>`;
+}
+
+// Función para abrir el modal con los datos del producto
+function abrirModal(producto) {
+  document.getElementById("modal-title").textContent = producto.nombre;
+  document.getElementById("modal-image").src = producto.imagen;
+  document.getElementById("modal-description").textContent = producto.descripcion;
+  document.getElementById("modal-price").textContent = `Precio: $${producto.precio.toFixed(2)}`;
+
+  // Mostrar opciones si existen (tallas, capacidades o colores)
+  const opciones =
+    producto.tallas?.length ? `Tallas: ${producto.tallas.join(", ")}` :
+    producto.capacidades?.length ? `Capacidades: ${producto.capacidades.join(", ")}` :
+    producto.colores?.length ? `Colores: ${producto.colores.join(", ")}` :
+    "";
+
+  document.getElementById("modal-options").textContent = opciones;
+
+  // Mostrar características con viñetas
+  document.getElementById("modal-features").innerHTML = convertirFeaturesALista(producto.features);
+
+  // Mostrar el modal
+  document.getElementById("product-modal").style.display = "block";
+}
+
+// Función para cerrar el modal
+document.querySelector(".close-modal").addEventListener("click", () => {
+  document.getElementById("product-modal").style.display = "none";
+});
+
+// También puedes cerrar el modal haciendo clic fuera del contenido
+window.addEventListener("click", function(event) {
+  const modal = document.getElementById("product-modal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
 });

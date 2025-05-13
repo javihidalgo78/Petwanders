@@ -972,3 +972,45 @@ nav a {
 .amazon-icon:hover {
   transform: scale(1.1);
 }
+
+/* Modal básico */
+#product-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+#product-modal .modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+#product-modal .modal-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+#product-modal .close-modal {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Cursor para imágenes clicables */
+.card .show-product {
+  cursor: pointer;
+}
