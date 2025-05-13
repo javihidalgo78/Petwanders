@@ -206,7 +206,7 @@ p {
   font-family: "Times New Roman", cursive;
   font-style: bold;
   font-size: large;
-  margin-bottom: 6rem;
+  margin-bottom: 1rem;
 }
 
 /************** Slider de imágenes***********/
@@ -264,12 +264,13 @@ img{
 }
 
 .hero content{
-    height: 100vh;
+    height: 80vh;
     background-position: center;
     color:antiquewhite;
     display: flex;
     position: relative;
     background-image: url(../Images/Harness6.JPEG);
+    
 }
 
 /* cabecera */
@@ -502,6 +503,8 @@ footer span {
 
 .card p, h3 {
     text-decoration: none;
+    
+
 }
 
 .card:hover{
@@ -829,7 +832,11 @@ nav a {
     /* Estilos para los botones de compra en las cards */
     .card {
       position: relative;
-      padding-bottom: 60px;
+      padding-bottom: 0px;
+      padding-top: 0%;
+      align-items: center;
+      align-content: center;
+      text-align: center;
     }
     
     .buy-options {
@@ -956,6 +963,10 @@ nav a {
   width: 100px;
   transition: transform 0.2s ease;
   position: relative;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  align-content: center;
 }
 
 .amazon-icon:hover {
