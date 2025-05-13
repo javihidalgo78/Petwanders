@@ -41,14 +41,18 @@ html {
   margin-top: 30px;
   background-color: white;
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-height: fit-content;
+  margin-left: auto; /* Centra el banner horizontalmente */
+  margin-right: auto; /* Centra el banner horizontalmente */
+
 }
 /*Imagen del banner*/
 .banner img {
   margin-top: 30px;
-  max-width: 200px;
-  height: auto;
+  margin-bottom: 30px;
+  max-width: 600px;
 }
 
 /* Barra de navegación */
@@ -172,19 +176,21 @@ h1 {
     margin: 0.5rem;
     text-align: center;
     font-size: 4rem;
-    color: var(--dark);
+    color: #025a22;
     font-weight: bolder;
-    font-family: 'Arial Narrow Bold', sans-serif;
+    font-family: "Dancing Script", cursive;
+
 }
 
 h1 span {
     font-size: 3rem;
+
 }
 
 h2 {
     margin-bottom: 2rem;
     margin-top: 2rem;
-    font-family: "Dancing Script", cursive;
+    font-family: "Times New Roman", cursive;
     font-size:xx-large;
 }
 
@@ -193,12 +199,14 @@ h3 {
     font-family: "Dancing Script", cursive;
     font-style: normal;
     font-size:xx-large;
+    color:#128d54
 }
 
 p {
-  font-family: "Dancing Script", cursive;
+  font-family: "Times New Roman", cursive;
   font-style: bold;
-  font-size:xx-large;
+  font-size: large;
+  margin-bottom: 6rem;
 }
 
 /************** Slider de imágenes***********/
@@ -842,7 +850,7 @@ nav a {
     .add-to-cart-btn {
       width: 100%;
       padding: 8px 0;
-      background-color: #4CAF50;
+      background-color: #4c8baf;
       color: white;
       border: none;
       border-radius: 4px;
@@ -851,7 +859,7 @@ nav a {
     }
     
     .add-to-cart-btn:hover {
-      background-color: #45a049;
+      background-color: #7ac7df;
     }
     
     /* Backdrop para cuando el carrito está abierto */
@@ -934,4 +942,22 @@ nav a {
 
 .banner img {
   animation: fadeZoomIn 1.5s ease-out;
+}
+/* Link de compra en Amazon*/
+.amazon-link {
+  margin-bottom: 80px;
+  margin-top: 10px;
+  text-align: right;
+  position:initial;
+
+}
+
+.amazon-icon {
+  width: 100px;
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.amazon-icon:hover {
+  transform: scale(1.1);
 }

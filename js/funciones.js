@@ -246,7 +246,8 @@ const productos = [
     descripcion: "Nuestro diseño étnico personalizado.",
     precio: 29.99,
     tallas: ["XS", "S", "M", "L"],
-    imagen: "images/Harness.JPEG"
+    imagen: "images/Harness.JPEG",
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
   },
   {
     id: "harness-chocolate",
@@ -254,7 +255,8 @@ const productos = [
     descripcion: "Elegante y con estilo propio.",
     precio: 32.99,
     tallas: ["XS", "S", "M", "L"],
-    imagen: "images/Harness2.JPEG"
+    imagen: "images/Harness2.JPEG",
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
   },
   {
     id: "harness-electric",
@@ -262,7 +264,8 @@ const productos = [
     descripcion: "Colores vibrantes para destacar.",
     precio: 34.99,
     tallas: ["XS", "S", "M", "L"],
-    imagen: "images/Harness4.JPEG"
+    imagen: "images/Harness4.JPEG",
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
   },
   {
     id: "white-fountain",
@@ -270,7 +273,8 @@ const productos = [
     descripcion: "Fuente de agua con filtro purificador.",
     precio: 42.50,
     capacidades: ["2L", "3L"],
-    imagen: "Images/Fuenteblanca.JPEG"
+    imagen: "Images/Fuenteblanca.JPEG",
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
   },
   {
     id: "green-fountain",
@@ -278,7 +282,8 @@ const productos = [
     descripcion: "Fuente de agua con filtro purificador.",
     precio: 42.50,
     capacidades: ["2L", "3L"],
-    imagen: "Images/Fuenteverde.JPEG"
+    imagen: "Images/Fuenteverde.JPEG",
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
   },
   {
     id: "auto-feeder",
@@ -286,42 +291,91 @@ const productos = [
     descripcion: "Comedero automático para mascotas.",
     precio: 59.99,
     capacidades: ["3L", "5L"],
-    imagen: "Images/Petfeeder.JPEG"
-  }
+    imagen: "Images/Petfeeder.JPEG",
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
+  },
+  {
+    id: "correas",
+    nombre: "Correas",
+    descripcion: "Combínalas con todo.",
+    precio: 12.99,
+    colores: ["Azul", "Verde", "Naranja", "Morado", "Negro"],
+    imagen: "images/Leashes.JPEG",
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
+  },
+    {
+    id: "arenero",
+    nombre: "Arenero Autolimpiable",
+    descripcion: "Tu casa libre de malos olores, 1 semana sin necesidad de limpiar la arena.",
+    precio: 249.99,
+    capacidades: ["90 litros"],
+    imagen: "images/Catlitterbox.JPEG",
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
+  },
+      {
+    id: "waterfeeder",
+    nombre: "Fuente de agua y Comedero",
+    descripcion: "Solución 2 en 1 para tus mascotas, proporciona agua filtrada y alimento para 2 semanas",
+    precio: 79.99,
+    capacidades: ["6L + 3L"],
+    imagen: "images/Waterfeeder2in1.JPEG",
+    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345" // URL específica del producto en Amazon
+  },
+
 ];
 
 const contenedor = document.getElementById('productos-container');
 
-  productos.forEach(producto => {
-    const opciones = (producto.tallas || producto.capacidades || []).map(talla =>
-      `<option value="${talla}">${talla}</option>`
-    ).join("");
+productos.forEach(producto => {
+  let opciones = [];
+  let tipoSelect = "";
+  
+  if (producto.tallas) {
+    opciones = producto.tallas;
+    tipoSelect = "talla";
+  } else if (producto.capacidades) {
+    opciones = producto.capacidades;
+    tipoSelect = "capacidad";
+  } else if (producto.colores) {
+    opciones = producto.colores;
+    tipoSelect = "color";
+  }
+  
+  const opcionesHTML = opciones.map(opcion =>
+    `<option value="${opcion}">${opcion}</option>`
+  ).join("");
 
-    const tipoSelect = producto.tallas ? "talla" : "capacidad";
+  const amazonUrl = producto.amazonUrl || "https://www.amazon.com/s?k=" + encodeURIComponent(producto.nombre);
 
-    const cardHTML = `
-      <div class="card">
-        <img src="${producto.imagen}" alt="${producto.nombre}">
-        <div>
-          <h3>${producto.nombre}</h3>
-          <p>${producto.descripcion}</p>
-          <div class="buy-options">
-            <select class="size-select" data-product-id="${producto.id}">
-              <option value="">Seleccionar ${tipoSelect}</option>
-              ${opciones}
-            </select>
-            <button
-              class="add-to-cart-btn"
-              data-product-id="${producto.id}"
-              data-product-name="${producto.nombre}"
-              data-product-price="${producto.precio}"
-              data-product-img="${producto.imagen}">
-              Añadir al Carrito - ${producto.precio.toFixed(2)}€
-            </button>
-          </div>
+
+  const cardHTML = `
+    <div class="card">
+      <img src="${producto.imagen}" alt="${producto.nombre}">
+      <div>
+        <h3>${producto.nombre}</h3>
+        <p>${producto.descripcion}</p>
+        <div class="buy-options">
+          <select class="size-select" data-product-id="${producto.id}">
+            <option value="">Seleccionar ${tipoSelect}</option>
+            ${opcionesHTML}
+          </select>
+          <button
+            class="add-to-cart-btn"
+            data-product-id="${producto.id}"
+            data-product-name="${producto.nombre}"
+            data-product-price="${producto.precio}"
+            data-product-img="${producto.imagen}">
+            Añadir al Carrito - ${producto.precio.toFixed(2)}€
+          </button>
+        </div>
+        <div class="amazon-link">
+          <a href="${amazonUrl}" target="_blank" rel="noopener noreferrer">
+            <img src="images/amazon-icon.png" alt="Comprar en Amazon" title="Comprar en Amazon" class="amazon-icon">
+          </a>
         </div>
       </div>
-    `;
+    </div>
+  `;
 
-    contenedor.innerHTML += cardHTML;
-  });
+  contenedor.innerHTML += cardHTML;
+});
