@@ -495,27 +495,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-function convertirFeaturesALista(featuresTexto) {
-  return `<ul style="padding-left: 1.2em; margin-top: 0.5em;">${
-    featuresTexto
-      .split(/\r?\n/)
-      .filter(linea => linea.trim().startsWith("•"))
-      .map(linea => `<li>${linea.replace(/^•\s*/, "")}</li>`)
-      .join("")
-  }</ul>`;
-}
 
-
-// Función para convertir el texto de características en una lista HTML
-function convertirFeaturesALista(featuresTexto) {
-  return `<ul style="padding-left: 1.2em; margin-top: 0.5em;">${
-    featuresTexto
-      .split(/\r?\n/)
-      .filter(linea => linea.trim().startsWith("•"))
-      .map(linea => `<li>${linea.replace(/^•\s*/, "")}</li>`)
-      .join("")
-  }</ul>`;
-}
 
 // Función para abrir el modal con los datos del producto
 function abrirModal(producto) {
@@ -552,3 +532,25 @@ window.addEventListener("click", function(event) {
     modal.style.display = "none";
   }
 });
+
+function convertirFeaturesALista(featuresTexto) {
+  return `<ul style="padding-left: 1.2em; margin-top: 0.5em;">${
+    featuresTexto
+      .split(/\r?\n/)
+      .filter(linea => linea.trim().startsWith("•"))
+      .map(linea => `<li>${linea.replace(/^•\s*/, "")}</li>`)
+      .join("")
+  }</ul>`;
+}
+
+
+// Función para convertir el texto de características en una lista HTML
+function convertirFeaturesALista(featuresTexto) {
+  return `<ul style="padding-left: 1.2em; margin-top: 0.5em;">${
+    featuresTexto
+      .split(/\r?\n/)
+      .filter(linea => linea.trim().startsWith("•"))
+      .map(linea => `<li>${linea.replace(/^•\s*/, "")}</li>`)
+      .join("")
+  }</ul>`;
+}
