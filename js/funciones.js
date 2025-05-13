@@ -250,7 +250,7 @@ const productos = [
     imagen: "images/Harness.JPEG",
     amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
     features: `• Material resistente y transpirable. 
-• Ajuste ergonómico para mayor comodidad. 
+• Ajuste ergonómico para mayor comodidad.
 • Tecnología anti-tirones. 
 • Fácil de poner y quitar. 
 • Diseñado para evitar rozaduras. 
@@ -532,16 +532,6 @@ window.addEventListener("click", function(event) {
     modal.style.display = "none";
   }
 });
-
-function convertirFeaturesALista(featuresTexto) {
-  return `<ul style="padding-left: 1.2em; margin-top: 0.5em;">${
-    featuresTexto
-      .split(/\r?\n/)
-      .filter(linea => linea.trim().startsWith("•"))
-      .map(linea => `<li>${linea.replace(/^•\s*/, "")}</li>`)
-      .join("")
-  }</ul>`;
-}
 
 
 // Función para convertir el texto de características en una lista HTML
