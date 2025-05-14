@@ -156,6 +156,11 @@ button:hover {
   .banner img {
     max-width: 150px;
   }
+  .modal {
+    max-height: 200px;
+    margin-top: 100px;
+
+  }
 }
 /**************Barra de Navegación ******************/
 
@@ -782,7 +787,7 @@ nav a {
     .quantity-btn {
       width: 25px;
       height: 25px;
-      background-color: #f0f0f0;
+      background-color: #726767;
       border: none;
       border-radius: 4px;
       cursor: pointer;
@@ -996,6 +1001,11 @@ nav a {
   position: relative;
 }
 
+#product-modal .modal-description {
+  font-family: "Dancing Script", cursive;
+  font-size: x-large;
+}
+
 #product-modal .modal-content img {
   max-width: 100%;
   height: auto;
@@ -1013,4 +1023,225 @@ nav a {
 /* Cursor para imágenes clicables */
 .card .show-product {
   cursor: pointer;
+}
+
+
+/* Efecto de typing */
+.typing-animation {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid; /* Cursor */
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #000; }
+}
+
+h1 {
+  animation: colorChange 20s infinite alternate;
+}
+
+@keyframes colorChange {
+  0% { color: #043104; }
+  25% { color: #4CAF50; }
+  50% { color: #2196F3; }
+  75% { color: #be43c9; }
+  100% { color: #9C27B0; }
+}
+
+/* Modal Container - Base */
+#product-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: flex-start; /* Cambiado a flex-start para mejor scroll en móviles */
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Mejor scroll en iOS */
+}
+
+/* Modal Content - Adaptable */
+#product-modal .modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  margin: 20px 0;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Imagen del Producto */
+#product-modal .modal-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Texto y Contenido */
+#product-modal .modal-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #025a22;
+}
+
+#product-modal .modal-description {
+  
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+#product-modal .modal-price {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #DE9100;
+  margin-bottom: 1.5rem;
+}
+
+/* Lista de Características */
+#modal-features {
+  text-align: left;
+  font-size: 2rem;
+  margin: 1.5rem 0;
+
+}
+
+#features-list {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+#features-list li {
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+/* Botón de Cierre */
+#product-modal .close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #555;
+  background: none;
+  border: none;
+  z-index: 1;
+}
+
+/* Opciones de Tamaño/Color */
+#modal-options {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background: #f5f5f5;
+  border-radius: 6px;
+}
+
+/* Botón de Amazon */
+.amazon-link {
+  display: block;
+  text-align: center;
+}
+
+.amazon-icon {
+  width: 120px;
+  transition: transform 0.2s ease;
+}
+
+.amazon-icon:hover {
+  transform: scale(1.05);
+}
+
+/* Botón Añadir al Carrito */
+#add-to-cart {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s;
+}
+
+#add-to-cart:hover {
+  background-color: #45a049;
+}
+
+/* Media Queries para Dispositivos Pequeños */
+@media (max-width: 480px) {
+  #product-modal .modal-content {
+    width: 95%;
+    padding: 1.5rem;
+    margin: 10px 0;
+  }
+  
+  #product-modal .modal-title {
+    font-size: 1.5rem;
+    padding-right: 25px; /* Espacio para el botón de cerrar */
+  }
+  
+  #product-modal .modal-description {
+    font-size: 1.2rem;
+  }
+  
+  #product-modal .modal-price {
+    font-size: 1.4rem;
+  }
+  
+  #modal-features {
+    font-size: 1.1rem;
+  }
+  
+  #features-list li {
+    font-size: 1rem;
+  }
+  
+  .close-modal {
+    top: 5px;
+    right: 10px;
+    font-size: 24px;
+  }
+  
+  #add-to-cart {
+    padding: 10px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Media Queries para Dispositivos Muy Pequeños (ej. iPhone SE) */
+@media (max-width: 320px) {
+  #product-modal .modal-content {
+    padding: 1rem;
+  }
+  
+  #product-modal .modal-title {
+    font-size: 1.3rem;
+  }
+  
+  #features-list {
+    padding-left: 1rem;
+  }
 }

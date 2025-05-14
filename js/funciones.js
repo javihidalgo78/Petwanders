@@ -244,7 +244,7 @@ const productos = [
   {
     id: "harness-mokka",
     nombre: "Mokka",
-    descripcion: "Nuestro diseño étnico personalizado.",
+    descripcion: "Haz click en la imagen para más información",
     precio: 29.99,
     tallas: ["XS", "S", "M", "L"],
     imagen: "images/Harness.JPEG",
@@ -259,7 +259,7 @@ const productos = [
   {
     id: "harness-chocolate",
     nombre: "Chocolate",
-    descripcion: "Elegante y con estilo propio.",
+    descripcion: "Haz click en la imagen para más información",
     precio: 32.99,
     tallas: ["XS", "S", "M", "L"],
     imagen: "images/Harness2.JPEG",
@@ -274,7 +274,7 @@ const productos = [
   {
     id: "harness-electric",
     nombre: "Electric",
-    descripcion: "Colores vibrantes para destacar.",
+    descripcion: "Haz click en la imagen para más información",
     precio: 34.99,
     tallas: ["XS", "S", "M", "L"],
     imagen: "images/Harness4.JPEG",
@@ -289,11 +289,11 @@ const productos = [
   {
     id: "white-fountain",
     nombre: "White Fountain",
-    descripcion: "Fuente de agua con filtro purificador.",
+    descripcion: "Haz click en la imagen para más información",
     precio: 42.50,
     capacidades: ["2L", "3L"],
     imagen: "Images/Fuenteblanca.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
+    amazonUrl: "https://amzn.eu/d/ffLMFYJ",
     features: `• Sistema de triple filtrado de carbón activo. 
 • Silenciosa y eficiente. 
 • Fácil de desmontar y limpiar. 
@@ -304,11 +304,11 @@ const productos = [
   {
     id: "green-fountain",
     nombre: "Green Fountain",
-    descripcion: "Fuente de agua con filtro purificador.",
+    descripcion: "Haz click en la imagen para más información",
     precio: 42.50,
     capacidades: ["2L", "3L"],
     imagen: "Images/Fuenteverde.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
+    amazonUrl: "https://amzn.eu/d/ffLMFYJ",
     features: `• Filtro reemplazable ecológico. 
 • Diseño moderno en color verde. 
 • Motor ultra silencioso. 
@@ -319,11 +319,11 @@ const productos = [
   {
     id: "auto-feeder",
     nombre: "Automatic Feeder",
-    descripcion: "Comedero automático para mascotas.",
+    descripcion: "Haz click en la imagen para más información",
     precio: 59.99,
     capacidades: ["3L", "5L"],
     imagen: "Images/Petfeeder.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
+    amazonUrl: "https://amzn.eu/d/g9I4pBq",
     features: `• Programación de horarios de comida. 
 • Pantalla digital intuitiva. 
 • Control por aplicación móvil. 
@@ -334,11 +334,11 @@ const productos = [
   {
     id: "correas",
     nombre: "Correas",
-    descripcion: "Combínalas con todo.",
+    descripcion: "Haz click en la imagen para más información",
     precio: 12.99,
     colores: ["Azul", "Verde", "Naranja", "Morado", "Negro"],
     imagen: "images/Leashes.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
+    amazonUrl: "https://amzn.eu/d/g9I4pBq",
     features: `• Nylon reforzado de alta resistencia. 
 • Mosquetón de acero inoxidable. 
 • Colores resistentes al sol. 
@@ -349,11 +349,11 @@ const productos = [
   {
     id: "arenero",
     nombre: "Arenero Autolimpiable",
-    descripcion: "Tu casa libre de malos olores, 1 semana sin necesidad de limpiar la arena.",
+    descripcion: "Haz click en la imagen para más información",
     precio: 249.99,
     capacidades: ["90 litros"],
     imagen: "images/Catlitterbox.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
+    amazonUrl: "https://amzn.eu/d/1Tm9dYD",
     features: `• Tecnología de auto-limpieza inteligente. 
 • Control de olores con filtro de carbono. 
 • Material antibacteriano. 
@@ -364,17 +364,32 @@ const productos = [
   {
     id: "waterfeeder",
     nombre: "Fuente de agua y Comedero",
-    descripcion: "Solución 2 en 1 para tus mascotas, proporciona agua filtrada y alimento para 2 semanas.",
+    descripcion: "Haz click en la imagen para más información",
     precio: 79.99,
     capacidades: ["6L + 3L"],
     imagen: "images/Waterfeeder2in1.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
+    amazonUrl: "https://amzn.eu/d/g9I4pBq",
     features: `• Combinación de bebedero y comedero. 
 • Material de grado alimenticio libre de BPA. 
 • Filtro de agua reemplazable. 
 • Fácil recarga superior. 
 • Diseño compacto y elegante. 
 • Autonomía de hasta 15 días.`
+  },
+  {
+    id: "petbowl",
+    nombre: "Haz click en la imagen para más información",
+    descripcion: "",
+    precio: 19.99,
+    capacidades: ["6L + 3L"],
+    imagen: "images/dogbowl.jpg",
+    amazonUrl: "https://amzn.eu/d/1BeI0St",
+    features: `• Combinación de bebedero y comedero. 
+• Material de grado alimenticio libre de BPA. 
+• Ideal para excussiones y viajes. 
+• Asa de transporte. 
+• Diseño compacto y elegante. 
+• Capacidad de 1 litro para comida y 0.8 litros de agua.`
   }
 ];
 
@@ -467,7 +482,8 @@ document.addEventListener('DOMContentLoaded', function () {
       modalImage.alt = producto.nombre;
       modalDescription.textContent = producto.descripcion;
       modalPrice.textContent = `Precio: ${producto.precio.toFixed(2)}€`;
-      modalFeatures. textContent = producto.features;
+//modalFeatures. innerHTML = producto.features.map(feature => `<li>${feature}</li>`).join('');
+      modalFeatures.innerHTML = convertirFeaturesALista(producto.features);
 
       let opcionesTexto = '';
       if (producto.tallas) {
@@ -498,27 +514,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // Función para abrir el modal con los datos del producto
-function abrirModal(producto) {
-  document.getElementById("modal-title").textContent = producto.nombre;
-  document.getElementById("modal-image").src = producto.imagen;
-  document.getElementById("modal-description").textContent = producto.descripcion;
-  document.getElementById("modal-price").textContent = `Precio: $${producto.precio.toFixed(2)}`;
+ function abrirModal(producto) {
 
-  // Mostrar opciones si existen (tallas, capacidades o colores)
-  const opciones =
-    producto.tallas?.length ? `Tallas: ${producto.tallas.join(", ")}` :
-    producto.capacidades?.length ? `Capacidades: ${producto.capacidades.join(", ")}` :
-    producto.colores?.length ? `Colores: ${producto.colores.join(", ")}` :
-    "";
+   document.getElementById("modal-title").textContent = producto.nombre;
+   document.getElementById("modal-image").src = producto.imagen;
+   document.getElementById("modal-price").textContent = `Precio: $${producto.precio.toFixed(2)}`;
 
-  document.getElementById("modal-options").textContent = opciones;
 
-  // Mostrar características con viñetas
-  document.getElementById("modal-features").innerHTML = convertirFeaturesALista(producto.features);
+   // Mostrar opciones si existen (tallas, capacidades o colores)
+   const opciones =
+     producto.tallas?.length ? `Tallas: ${producto.tallas.join(", ")}` :
+     producto.capacidades?.length ? `Capacidades: ${producto.capacidades.join(", ")}` :
+     producto.colores?.length ? `Colores: ${producto.colores.join(", ")}` :     "";
+   document.getElementById("modal-options").textContent = opciones;
 
-  // Mostrar el modal
+   // Mostrar características con viñetas
+   document.getElementById("modal-features").innerHTML = convertirFeaturesALista(producto.features);
+
+   // Mostrar el modal
   document.getElementById("product-modal").style.display = "block";
-}
+ }
 
 // Función para cerrar el modal
 document.querySelector(".close-modal").addEventListener("click", () => {
@@ -544,3 +559,109 @@ function convertirFeaturesALista(featuresTexto) {
       .join("")
   }</ul>`;
 }
+
+// Función para abrir la modal con mejor manejo en móviles
+function openModal(product) {
+  // Deshabilitar scroll del body
+  document.body.style.overflow = 'hidden';
+  document.body.style.position = 'fixed';
+  document.body.style.width = '100%';
+  
+  // Configurar contenido
+  modalTitle.textContent = product.nombre;
+  modalImage.src = product.imagen;
+  modalImage.alt = product.nombre;
+  modalDescription.textContent = product.descripcion;
+  modalPrice.textContent = `Precio: $${product.precio.toFixed(2)}`;
+  
+  // Opciones disponibles
+  if (product.tallas) {
+    modalOptions.textContent = `Tallas: ${product.tallas.join(', ')}`;
+  } else if (product.colores) {
+    modalOptions.textContent = `Colores: ${product.colores.join(', ')}`;
+  } else if (product.capacidades) {
+    modalOptions.textContent = `Capacidades: ${product.capacidades.join(', ')}`;
+  } else {
+    modalOptions.textContent = '';
+  }
+  
+  // Lista de características
+  featuresList.innerHTML = '';
+  product.features.forEach(feature => {
+    const li = document.createElement('li');
+    li.textContent = feature;
+    featuresList.appendChild(li);
+  });
+  
+  // Mostrar modal
+  modal.style.display = 'flex';
+  
+  // Enfocar la modal para mejor accesibilidad
+  modal.focus();
+}
+
+// Función para cerrar la modal
+function closeModal() {
+  modal.style.display = 'none';
+  // Restaurar scroll del body
+  document.body.style.overflow = '';
+  document.body.style.position = '';
+  document.body.style.width = '';
+}
+
+// Event listeners mejorados para móviles
+closeModalBtn.addEventListener('click', closeModal);
+
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    closeModal();
+  }
+});
+
+// Cerrar con tecla ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
+
+const modalAddToCartBtn = document.getElementById('modal-add-to-cart');
+
+// Evento para añadir al carrito desde el modal
+modalAddToCartBtn.addEventListener('click', () => {
+  const selectedOption = modalSelect.value;
+  if (!selectedOption) {
+    alert('Por favor selecciona una opción antes de añadir al carrito.');
+    return;
+  }
+
+  // Puedes personalizar este objeto según cómo manejes el carrito
+  const producto = productos.find(p => p.nombre === modalTitle.textContent);
+
+  const itemCarrito = {
+    id: producto.id,
+    nombre: producto.nombre,
+    opcion: selectedOption,
+    precio: producto.precio,
+    cantidad: 1
+  };
+
+  // Aquí llamas a tu función para añadir al carrito
+  agregarAlCarrito(itemCarrito);
+
+  alert(`${producto.nombre} (${selectedOption}) añadido al carrito.`);
+  modal.style.display = 'none';
+});
+
+const carrito = [];
+
+function agregarAlCarrito(item) {
+  const existente = carrito.find(p => p.id === item.id && p.opcion === item.opcion);
+  if (existente) {
+    existente.cantidad += 1;
+  } else {
+    carrito.push(item);
+  }
+  console.log("Carrito actualizado:", carrito);
+}
+
