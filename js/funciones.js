@@ -1,4 +1,14 @@
-	
+	import { productos } from './productos.js';
+
+
+  const modal = document.getElementById('product-modal');
+ 
+
+  //evento que se ejecuta cuando el html se ha cargado
+  document.addEventListener('DOMContentLoaded', function() {
+  /**
+   * **********SLIDER***************
+   */
 		let currentSlide = 0;
 		const slides = document.querySelectorAll('.slider .slide');
 	  
@@ -27,8 +37,15 @@
       
       setInterval(nextSlide, 3000);
     });
+/** 
+   * **********FIN SLIDER***************
+  */
+
+/**
+   * **********CARRITO COMPRAS***************
+ */
     // Funcionalidad del carrito de compras
-    document.addEventListener('DOMContentLoaded', function() {
+
       // Elementos del DOM
       const cartIcon = document.getElementById('cart-icon');
       const cartContainer = document.getElementById('cart-container');
@@ -240,164 +257,29 @@
     });
 
 
-const productos = [
-  {
-    id: "harness-mokka",
-    nombre: "Mokka",
-    descripcion: "Haz click en la imagen para más información",
-    precio: 29.99,
-    tallas: ["XS", "S", "M", "L"],
-    imagen: "images/Harness.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
-    features: `• Material resistente y transpirable. 
-• Ajuste ergonómico para mayor comodidad.
-• Tecnología anti-tirones. 
-• Fácil de poner y quitar. 
-• Diseñado para evitar rozaduras. 
-• Estilo único inspirado en patrones étnicos.`
-  },
-  {
-    id: "harness-chocolate",
-    nombre: "Chocolate",
-    descripcion: "Haz click en la imagen para más información",
-    precio: 32.99,
-    tallas: ["XS", "S", "M", "L"],
-    imagen: "images/Harness2.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
-    features: `• Tela acolchada de alta calidad. 
-• Hebillas de liberación rápida. 
-• Revestimiento antiolor. 
-• Diseño elegante y sofisticado. 
-• Material ecológico certificado. 
-• Costuras reforzadas.`
-  },
-  {
-    id: "harness-electric",
-    nombre: "Electric",
-    descripcion: "Haz click en la imagen para más información",
-    precio: 34.99,
-    tallas: ["XS", "S", "M", "L"],
-    imagen: "images/Harness4.JPEG",
-    amazonUrl: "https://www.amazon.com/arnéspetshop/id12345",
-    features: `• Colores reflectantes para visibilidad nocturna. 
-• Malla transpirable para climas cálidos. 
-• Cierre de seguridad triple. 
-• Libre de sustancias tóxicas. 
-• Ajuste anatómico. 
-• Producto vegano.`
-  },
-  {
-    id: "white-fountain",
-    nombre: "White Fountain",
-    descripcion: "Haz click en la imagen para más información",
-    precio: 42.50,
-    capacidades: ["2L", "3L"],
-    imagen: "Images/Fuenteblanca.JPEG",
-    amazonUrl: "https://amzn.eu/d/ffLMFYJ",
-    features: `• Sistema de triple filtrado de carbón activo. 
-• Silenciosa y eficiente. 
-• Fácil de desmontar y limpiar. 
-• Plástico libre de BPA. 
-• Promueve hidratación saludable. 
-• Consumo energético bajo.`
-  },
-  {
-    id: "green-fountain",
-    nombre: "Green Fountain",
-    descripcion: "Haz click en la imagen para más información",
-    precio: 42.50,
-    capacidades: ["2L", "3L"],
-    imagen: "Images/Fuenteverde.JPEG",
-    amazonUrl: "https://amzn.eu/d/ffLMFYJ",
-    features: `• Filtro reemplazable ecológico. 
-• Diseño moderno en color verde. 
-• Motor ultra silencioso. 
-• Antideslizante y estable. 
-• Ideal para gatos y perros pequeños. 
-• Ahorro energético automático.`
-  },
-  {
-    id: "auto-feeder",
-    nombre: "Automatic Feeder",
-    descripcion: "Haz click en la imagen para más información",
-    precio: 59.99,
-    capacidades: ["3L", "5L"],
-    imagen: "Images/Petfeeder.JPEG",
-    amazonUrl: "https://amzn.eu/d/g9I4pBq",
-    features: `• Programación de horarios de comida. 
-• Pantalla digital intuitiva. 
-• Control por aplicación móvil. 
-• Contenedor hermético para preservar frescura. 
-• Fácil recarga y limpieza. 
-• Fabricado con materiales duraderos y reciclables.`
-  },
-  {
-    id: "correas",
-    nombre: "Correas",
-    descripcion: "Haz click en la imagen para más información",
-    precio: 12.99,
-    colores: ["Azul", "Verde", "Naranja", "Morado", "Negro"],
-    imagen: "images/Leashes.JPEG",
-    amazonUrl: "https://amzn.eu/d/g9I4pBq",
-    features: `• Nylon reforzado de alta resistencia. 
-• Mosquetón de acero inoxidable. 
-• Colores resistentes al sol. 
-• Longitud ajustable. 
-• Fácil de lavar. 
-• Compatibles con cualquier arnés.`
-  },
-  {
-    id: "arenero",
-    nombre: "Arenero Autolimpiable",
-    descripcion: "Haz click en la imagen para más información",
-    precio: 249.99,
-    capacidades: ["90 litros"],
-    imagen: "images/Catlitterbox.JPEG",
-    amazonUrl: "https://amzn.eu/d/1Tm9dYD",
-    features: `• Tecnología de auto-limpieza inteligente. 
-• Control de olores con filtro de carbono. 
-• Material antibacteriano. 
-• Bandeja extraíble para fácil limpieza. 
-• Bajo consumo eléctrico. 
-• Apto para gatos grandes.`
-  },
-  {
-    id: "waterfeeder",
-    nombre: "Fuente de agua y Comedero",
-    descripcion: "Haz click en la imagen para más información",
-    precio: 79.99,
-    capacidades: ["6L + 3L"],
-    imagen: "images/Waterfeeder2in1.JPEG",
-    amazonUrl: "https://amzn.eu/d/g9I4pBq",
-    features: `• Combinación de bebedero y comedero. 
-• Material de grado alimenticio libre de BPA. 
-• Filtro de agua reemplazable. 
-• Fácil recarga superior. 
-• Diseño compacto y elegante. 
-• Autonomía de hasta 15 días.`
-  },
-  {
-    id: "petbowl",
-    nombre: "Haz click en la imagen para más información",
-    descripcion: "",
-    precio: 19.99,
-    capacidades: ["6L + 3L"],
-    imagen: "images/dogbowl.jpg",
-    amazonUrl: "https://amzn.eu/d/1BeI0St",
-    features: `• Combinación de bebedero y comedero. 
-• Material de grado alimenticio libre de BPA. 
-• Ideal para excussiones y viajes. 
-• Asa de transporte. 
-• Diseño compacto y elegante. 
-• Capacidad de 1 litro para comida y 0.8 litros de agua.`
-  }
-];
+/**
+ * *************FIN CARRITO****************
+ */
 
 
-
+/**
+ * *************MOSTRAR PRODUCTOS EN VENTANA****************
+ */
 const contenedor = document.getElementById('productos-container');
 
 productos.forEach(producto => {
+  contenedor.innerHTML += displayProduct(producto, false)
+});
+
+/**
+ * 
+ * @param {recibe un producto} producto 
+ * @param {boolean} modal 
+ * @returns html para mostrar el producto en pantalla
+ * @description Distingue entre modal o escritorio para maquetar el producto
+ */
+
+function displayProduct(producto, modal) {
   let opciones = [];
   let tipoSelect = "";
   
@@ -417,29 +299,43 @@ productos.forEach(producto => {
   ).join("");
 
   const amazonUrl = producto.amazonUrl || "https://www.amazon.com/s?k=" + encodeURIComponent(producto.nombre);
-
-
+  
+  // Si estamos en la modal, mostramos las características, pero no la descripción
+  // Si no estamos en la modal, mostramos la descripción, pero no las características
+  const descripcion = modal ? '' : `${producto.descripcion}`;
+  const features = modal ? convertirFeaturesALista(producto.features) : "";
+  
+  // Usar un ID único para el selector y el botón en la modal
+  const selectId = modal ? `modal-size-select-${producto.id}` : `size-select-${producto.id}`;
+  const buttonClass = modal ? "modal-add-to-cart-btn" : "add-to-cart-btn";
+  
   const cardHTML = `
     <div class="card">
-    <a 
-      data-product-id="${producto.id}"
-      data-product-name="${producto.nombre}"
-      data-product-price="${producto.precio}"
-      data-product-img="${producto.imagen}"
-     class="show-product">
-    <img src="${producto.imagen}" alt="${producto.nombre}">
-    </a>
+      ${modal ? '' : `
+      <a 
+        data-product-id="${producto.id}"
+        data-product-name="${producto.nombre}"
+        data-product-price="${producto.precio}"
+        data-product-img="${producto.imagen}"
+        data-product-description="${producto.descripcion}"
+        class="show-product">
+        <img src="${producto.imagen}" alt="${producto.nombre}">
+      </a>
+      `}
+      
+      ${modal ? `<img src="${producto.imagen}" alt="${producto.nombre}" style="max-width: 100%;">` : ''}
       
       <div>
         <h3>${producto.nombre}</h3>
-        <p>${producto.descripcion}</p>
+        <p>${descripcion}</p>
+        ${features}
         <div class="buy-options">
-          <select class="size-select" data-product-id="${producto.id}">
+          <select id="${selectId}" class="size-select" data-product-id="${producto.id}">
             <option value="">Seleccionar ${tipoSelect}</option>
             ${opcionesHTML}
           </select>
           <button
-            class="add-to-cart-btn"
+            class="${buttonClass}"
             data-product-id="${producto.id}"
             data-product-name="${producto.nombre}"
             data-product-price="${producto.precio}"
@@ -456,89 +352,178 @@ productos.forEach(producto => {
     </div>
   `;
 
-  contenedor.innerHTML += cardHTML;
+  return cardHTML;
+}
+
+// Modificar el evento para cuando se hace clic en la imagen del producto
+document.querySelectorAll('.show-product').forEach(enlace => {
+  enlace.addEventListener('click', function () {
+    const productId = this.dataset.productId;
+    const producto = productos.find(p => p.id === productId);
+    
+    if (!producto) return;
+    const boton = `<span class="close-modal">&times;</span>`;
+    const contenido = displayProduct(producto, true);
+
+    document.getElementById("modal-content").innerHTML = boton + contenido;
+    modal.style.display = 'flex';
+    
+    // Agregar el evento al botón DESPUÉS de que se haya insertado en el DOM
+    const modalAddToCartBtn = document.querySelector('.modal-add-to-cart-btn');
+    if (modalAddToCartBtn) {
+      modalAddToCartBtn.addEventListener('click', function() {
+        const productId = this.dataset.productId;
+        const productName = this.dataset.productName;
+        const productPrice = parseFloat(this.dataset.productPrice);
+        const productImage = this.dataset.productImg;
+        
+        // Obtener talla/capacidad/color seleccionada usando el ID único del selector
+        const sizeSelect = document.querySelector(`#modal-size-select-${productId}`);
+        const productSize = sizeSelect ? sizeSelect.value : '';
+        
+        if (!productSize) {
+          alert('Por favor, selecciona una opción');
+          return;
+        }
+        
+        // Asegurarnos de que estamos llamando a la función correcta
+        // Y que está definida en el ámbito adecuado
+        if (typeof addToCart === 'function') {
+          addToCart(productId, productName, productPrice, productImage, productSize);
+          modal.style.display = 'none'; // Cerrar modal tras añadir
+        } else {
+          console.error('La función addToCart no está disponible');
+        }
+      });
+    }
+
+    document.querySelector('.close-modal').addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+  });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  const modal = document.getElementById('product-modal');
-  const modalTitle = document.getElementById('modal-title');
-  const modalImage = document.getElementById('modal-image');
-  const modalDescription = document.getElementById('modal-description');
-  const modalPrice = document.getElementById('modal-price');
-  const modalOptions = document.getElementById('modal-options');
-  const modalFeatures = document.getElementById('modal-features')
-  const closeModalBtn = document.querySelector('.close-modal');
+// function displayProduct(producto, modal){
+  
+//   let opciones = [];
+//   let tipoSelect = "";
+  
+//   if (producto.tallas) {
+//     opciones = producto.tallas;
+//     tipoSelect = "talla";
+//   } else if (producto.capacidades) {
+//     opciones = producto.capacidades;
+//     tipoSelect = "capacidad";
+//   } else if (producto.colores) {
+//     opciones = producto.colores;
+//     tipoSelect = "color";
+//   }
+  
+//   const opcionesHTML = opciones.map(opcion =>
+//     `<option value="${opcion}">${opcion}</option>`
+//   ).join("");
+
+//   const amazonUrl = producto.amazonUrl || "https://www.amazon.com/s?k=" + encodeURIComponent(producto.nombre);
+//   const descripcion = modal?'':`${producto.descripcion}`;
+//   const features = modal? convertirFeaturesALista(producto.features) : "";
+//   const cardHTML = `
+//     <div class="card">
+//     <a 
+//       data-product-id="${producto.id}"
+//       data-product-name="${producto.nombre}"
+//       data-product-price="${producto.precio}"
+//       data-product-img="${producto.imagen}"
+//       data-product-description="${producto.descripcion}"
+//      class="show-product">
+//     <img src="${producto.imagen}" alt="${producto.nombre}">
+//     </a>
+      
+//       <div>
+//         <h3>${producto.nombre}</h3>
+//         <p>${descripcion}</p>
+//         ${features}
+//         <div class="buy-options">
+//           <select class="size-select" data-product-id="${producto.id}">
+//             <option value="">Seleccionar ${tipoSelect}</option>
+//             ${opcionesHTML}
+//           </select>
+//           <button
+//             class="add-to-cart-btn"
+//             data-product-id="${producto.id}"
+//             data-product-name="${producto.nombre}"
+//             data-product-price="${producto.precio}"
+//             data-product-img="${producto.imagen}">
+//             Añadir al Carrito - ${producto.precio.toFixed(2)}€
+//           </button>
+//         </div>
+//         <div class="amazon-link">
+//           <a href="${amazonUrl}" target="_blank" rel="noopener noreferrer">
+//             <img src="images/amazon-icon.png" alt="Comprar en Amazon" title="Comprar en Amazon" class="amazon-icon">
+//           </a>
+//         </div>
+//       </div>
+//     </div>
+//   `;
+
+
+//   if(modal){
+//     // Añadir evento al botón de la modal
+// const addToCartBtnModal = document.querySelector('.add-to-cart-btn');
+// if (addToCartBtnModal) {
+//   addToCartBtnModal.addEventListener('click', function(e) {
+// console.log(e)
+//     const productId = this.dataset.productId;
+//     const productName = this.dataset.productName;
+//     const productPrice = parseFloat(this.dataset.productPrice);
+//     const productImage = this.dataset.productImg;
+//     // Obtener talla/capacidad/color seleccionada
+//     const sizeSelect = document.querySelector('.size-select[data-product-id="' + productId + '"]');
+//     const productSize = sizeSelect ? sizeSelect.value : '';
+//     if (!productSize) {
+//       alert('Por favor, selecciona una opción');
+//       return;
+//     }
+//     addToCart(productId, productName, productPrice, productImage, productSize);
+//     modal.style.display = 'none'; // Opcional: cerrar modal tras añadir
+//   });
+// }
+//   }
+//   return cardHTML;
+// }
+
+/**
+ * *************FIN MOSTRAR PRODUCTOS EN VENTANA****************
+ */
+
+
+// Elementos del producto en la modal
 
   // Abrir modal al hacer clic en imagen
   document.querySelectorAll('.show-product').forEach(enlace => {
     enlace.addEventListener('click', function () {
       const productId = this.dataset.productId;
       const producto = productos.find(p => p.id === productId);
-
+      
       if (!producto) return;
+      const boton = `<span class="close-modal">&times;</span>`;
+      const contenido = displayProduct(producto, true);
 
-      modalTitle.textContent = producto.nombre;
-      modalImage.src = producto.imagen;
-      modalImage.alt = producto.nombre;
-      modalDescription.textContent = producto.descripcion;
-      modalPrice.textContent = `Precio: ${producto.precio.toFixed(2)}€`;
-//modalFeatures. innerHTML = producto.features.map(feature => `<li>${feature}</li>`).join('');
-      modalFeatures.innerHTML = convertirFeaturesALista(producto.features);
-
-      let opcionesTexto = '';
-      if (producto.tallas) {
-        opcionesTexto = 'Tallas disponibles: ' + producto.tallas.join(', ');
-      } else if (producto.capacidades) {
-        opcionesTexto = 'Capacidades disponibles: ' + producto.capacidades.join(', ');
-      } else if (producto.colores) {
-        opcionesTexto = 'Colores disponibles: ' + producto.colores.join(', ');
-      }
-      modalOptions.textContent = opcionesTexto;
-
+      document.getElementById("modal-content").innerHTML =  boton + contenido;
       modal.style.display = 'flex';
-    });
-  });
+      //TODO: crear evento para añadir al carrito
 
-  // Cerrar modal
-  closeModalBtn.addEventListener('click', () => {
+      document.querySelector('.close-modal').addEventListener('click', () => {
     modal.style.display = 'none';
   });
-
+    });
+  });
+  
   window.addEventListener('click', (e) => {
     if (e.target === modal) {
       modal.style.display = 'none';
     }
   });
-});
 
-
-
-// Función para abrir el modal con los datos del producto
- function abrirModal(producto) {
-
-   document.getElementById("modal-title").textContent = producto.nombre;
-   document.getElementById("modal-image").src = producto.imagen;
-   document.getElementById("modal-price").textContent = `Precio: $${producto.precio.toFixed(2)}`;
-
-
-   // Mostrar opciones si existen (tallas, capacidades o colores)
-   const opciones =
-     producto.tallas?.length ? `Tallas: ${producto.tallas.join(", ")}` :
-     producto.capacidades?.length ? `Capacidades: ${producto.capacidades.join(", ")}` :
-     producto.colores?.length ? `Colores: ${producto.colores.join(", ")}` :     "";
-   document.getElementById("modal-options").textContent = opciones;
-
-   // Mostrar características con viñetas
-   document.getElementById("modal-features").innerHTML = convertirFeaturesALista(producto.features);
-
-   // Mostrar el modal
-  document.getElementById("product-modal").style.display = "block";
- }
-
-// Función para cerrar el modal
-document.querySelector(".close-modal").addEventListener("click", () => {
-  document.getElementById("product-modal").style.display = "none";
-});
 
 // También puedes cerrar el modal haciendo clic fuera del contenido
 window.addEventListener("click", function(event) {
@@ -549,9 +534,10 @@ window.addEventListener("click", function(event) {
 });
 
 
+
 // Función para convertir el texto de características en una lista HTML
 function convertirFeaturesALista(featuresTexto) {
-  return `<ul style="padding-left: 1.2em; margin-top: 0.5em;">${
+  return `<ul class = "features">${
     featuresTexto
       .split(/\r?\n/)
       .filter(linea => linea.trim().startsWith("•"))
@@ -560,98 +546,9 @@ function convertirFeaturesALista(featuresTexto) {
   }</ul>`;
 }
 
-// Función para abrir la modal con mejor manejo en móviles
-function openModal(product) {
-  // Deshabilitar scroll del body
-  document.body.style.overflow = 'hidden';
-  document.body.style.position = 'fixed';
-  document.body.style.width = '100%';
-  
-  // Configurar contenido
-  modalTitle.textContent = product.nombre;
-  modalImage.src = product.imagen;
-  modalImage.alt = product.nombre;
-  modalDescription.textContent = product.descripcion;
-  modalPrice.textContent = `Precio: $${product.precio.toFixed(2)}`;
-  
-  // Opciones disponibles
-  if (product.tallas) {
-    modalOptions.textContent = `Tallas: ${product.tallas.join(', ')}`;
-  } else if (product.colores) {
-    modalOptions.textContent = `Colores: ${product.colores.join(', ')}`;
-  } else if (product.capacidades) {
-    modalOptions.textContent = `Capacidades: ${product.capacidades.join(', ')}`;
-  } else {
-    modalOptions.textContent = '';
-  }
-  
-  // Lista de características
-  featuresList.innerHTML = '';
-  product.features.forEach(feature => {
-    const li = document.createElement('li');
-    li.textContent = feature;
-    featuresList.appendChild(li);
-  });
-  
-  // Mostrar modal
-  modal.style.display = 'flex';
-  
-  // Enfocar la modal para mejor accesibilidad
-  modal.focus();
-}
 
-// Función para cerrar la modal
-function closeModal() {
-  modal.style.display = 'none';
-  // Restaurar scroll del body
-  document.body.style.overflow = '';
-  document.body.style.position = '';
-  document.body.style.width = '';
-}
-
-// Event listeners mejorados para móviles
-closeModalBtn.addEventListener('click', closeModal);
-
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    closeModal();
-  }
-});
-
-// Cerrar con tecla ESC
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    closeModal();
-  }
-});
 
 const modalAddToCartBtn = document.getElementById('modal-add-to-cart');
-
-// Evento para añadir al carrito desde el modal
-modalAddToCartBtn.addEventListener('click', () => {
-  const selectedOption = modalSelect.value;
-  if (!selectedOption) {
-    alert('Por favor selecciona una opción antes de añadir al carrito.');
-    return;
-  }
-
-  // Puedes personalizar este objeto según cómo manejes el carrito
-  const producto = productos.find(p => p.nombre === modalTitle.textContent);
-
-  const itemCarrito = {
-    id: producto.id,
-    nombre: producto.nombre,
-    opcion: selectedOption,
-    precio: producto.precio,
-    cantidad: 1
-  };
-
-  // Aquí llamas a tu función para añadir al carrito
-  agregarAlCarrito(itemCarrito);
-
-  alert(`${producto.nombre} (${selectedOption}) añadido al carrito.`);
-  modal.style.display = 'none';
-});
 
 const carrito = [];
 
