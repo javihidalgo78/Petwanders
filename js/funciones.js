@@ -18,7 +18,7 @@
 		  slides[currentSlide].classList.add('active');
 		}
 	  
-		setInterval(showNextSlide, 8000); // Cambia cada 8 segundos
+		setInterval(showNextSlide, 6000); // Cambia cada 8 segundos
 
     // Funcionalidad del slider (código existente)
     document.addEventListener('DOMContentLoaded', function() {
