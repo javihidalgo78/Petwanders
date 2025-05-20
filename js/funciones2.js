@@ -250,6 +250,14 @@ function displayProduct(producto, modal) {
 }
 
 // PASO 4: Poner la inicialización y event listeners dentro de DOMContentLoaded
+// En funciones2.js, dentro del evento DOMContentLoaded
+const contenedor = document.getElementById('productos-container');
+if (contenedor && contenedor.children.length === 0) {
+  // Solo muestra los productos si el contenedor está vacío
+  productos.forEach(producto => {
+    contenedor.innerHTML += displayProduct(producto, false);
+  });
+}
 document.addEventListener('DOMContentLoaded', function() {
   // Inicializar las referencias a elementos DOM
   modal = document.getElementById('product-modal');
