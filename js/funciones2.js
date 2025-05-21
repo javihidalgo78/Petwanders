@@ -309,12 +309,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // Mostrar productos en la página
-  const contenedor = document.getElementById('productos-container');
-  if (contenedor) {
-    productos.forEach(producto => {
-      contenedor.innerHTML += displayProduct(producto, false);
-    });
-  }
+  // const contenedor = document.getElementById('productos-container');
+  // if (contenedor) {
+  //   productos.forEach(producto => {
+  //     contenedor.innerHTML += displayProduct(producto, false);
+  //   });
+  // }
   
   // Configurar event listeners para botones "Añadir al Carrito"
   addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
