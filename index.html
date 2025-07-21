@@ -43,29 +43,46 @@
   
   <!-- Backdrop para cuando el carrito está abierto -->
   <div class="backdrop" id="backdrop"></div>
+
+    <!-- Botón de Registro/Login -->
+    <div class="user-actions">
+      <button id="register-btn">Registro</button>
+    </div>
   </nav>
+
+  <!-- Modal de Registro -->
+  <div id="register-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-register-modal" class="close-modal">&times;</span>
+      <h2>Registro de Nuevo Usuario</h2>
+      <form id="register-form">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="text" name="apellidos" placeholder="Apellidos" required>
+        <input type="email" name="email" placeholder="Correo Electrónico" required>
+        <input type="text" name="direccion" placeholder="Dirección" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit">Registrarse</button>
+      </form>
+    </div>
+  </div>
 
 
   <!-- Banner -->
   <header class="banner">
-
-    <img src="Images/LogoPW.JPEG" alt="Logo" />
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js">
-  <div id="particles-js"></div>
-</script>
-
+    <a href="#" class="logo-link">
+      <img src="Images/LogoPW.JPEG" alt="Logo - Volver al inicio" />
+      <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    </a>
+    <div id="particles-js"></div>
   </header>
-
- 
   <!-- Contenido principal -->
   <section class="contenido" id="conocenos">
 
    <h1 class="typing-animation">Accesorios con estilo para tu mascota</h1>
-
-	<div class="slider">
+   <div class="slider">
     
-		<img src="Images/Harness.JPEG" class="slide active" alt="Imagen 1">
-		<img src="Images/Harness2.JPEG" class="slide" alt="Imagen 2">
+		<img src="Images/Harness.JPEG" class="slide" alt="Imagen 1">
+		<img src="Images/Harness2.JPEG" class="slide active" alt="Imagen 2">
 		<img src="Images/Leashes.JPEG" class="slide" alt="Imagen 3">
     <img src="Images/Harness4.JPEG" class="slide" alt="Imagen 4">
     <img src="Images/Harnees5.JPEG" class="slide" alt="Imagen 5">
@@ -82,7 +99,23 @@
     
 
  <h1>Nuestros accesorios y dispositivos están diseñados para el bienestar de tus mascotas</h1> 
-    
+
+      <div class="filters-container">
+        <select id="category-filter">
+          <option value="">Todas las categorías</option>
+          <!-- Las categorías se cargarán aquí dinámicamente -->
+        </select>
+        <select id="sort-by-price">
+          <option value="">Ordenar por precio</option>
+          <option value="asc">Más barato primero</option>
+          <option value="desc">Más caro primero</option>
+        </select>
+        <label>
+          <input type="checkbox" id="availability-filter" checked>
+          Mostrar solo disponibles
+        </label>
+        <button id="search-button">Buscar</button>
+      </div>
 
       <div class="card-grid" id="productos-container">
 
@@ -117,7 +150,7 @@
 </footer> 
 
 <!-- Enlace al JS -->
-<!--<script type="module" src="js/productos.js"></script>-->
+<script type="module" src="js/productos.js"></script>
 <script type="module" src="js/funciones2.js"></script>
   <!-- Enlace al JS -->
 

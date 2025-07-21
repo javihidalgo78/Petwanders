@@ -316,68 +316,150 @@ document.addEventListener('DOMContentLoaded', function() {
   //   });
   // }
   
-  // Configurar event listeners para botones "Añadir al Carrito"
-  addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-  addToCartButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const productId = this.dataset.productId;
-      const productName = this.dataset.productName;
-      const productPrice = parseFloat(this.dataset.productPrice);
-      const productImage = this.dataset.productImg;
-      
-      // Obtener talla seleccionada
-      const sizeSelect = document.querySelector(`.size-select[data-product-id="${productId}"]`);
-      const productSize = sizeSelect.value;
-      
-      if (!productSize) {
-        alert('Por favor, selecciona una talla/capacidad');
-        return;
-      }
-      
-      addToCart(productId, productName, productPrice, productImage, productSize);
+  // Cargar categorías y productos
+  const categoryFilter = document.getElementById('category-filter');
+  const sortByPrice = document.getElementById('sort-by-price');
+  const availabilityFilter = document.getElementById('availability-filter');
+
+  function fetchProducts() {
+    const category = categoryFilter.value;
+    const sortBy = sortByPrice.value;
+    const availability = availabilityFilter.checked;
+
+    let url = `get_products.php?availability=${availability}`;
+    if (category) {
+      url += `&category=${category}`;
+    }
+    if (sortBy) {
+      url += `&sortBy=${sortBy}`;
+    }
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('productos-container');
+        container.innerHTML = ''; // Limpiar contenedor
+        data.forEach(product => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <a class="show-product-db" data-product-id="${product.id}" data-product-name="${product.nombre}" data-product-price="${product.precio}" data-product-img="Images/${product.foto}" style="cursor: pointer;">
+              <img src="Images/${product.foto}" alt="${product.nombre}">
+            </a>
+            <div>
+              <h3>${product.nombre}</h3>
+              <div class="buy-options">
+                <button
+                  class="add-to-cart-btn"
+                  data-product-id="${product.id}"
+                  data-product-name="${product.nombre}"
+                  data-product-price="${product.precio}"
+                  data-product-img="Images/${product.foto}">
+                  Añadir al Carrito - ${parseFloat(product.precio).toFixed(2)}€
+                </button>
+              </div>
+              <div class="amazon-link">
+              </div>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      });
+  }
+
+  fetch('get_categories.php')
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category.categoria;
+        option.textContent = category.categoria;
+        categoryFilter.appendChild(option);
+      });
     });
+
+  const searchButton = document.getElementById('search-button');
+
+  // ... (código existente)
+
+  searchButton.addEventListener('click', fetchProducts);
+
+  // Carga inicial de productos
+  fetchProducts();
+
+  // Usar delegación de eventos para todos los botones de "Añadir al carrito" (en la grilla y en la modal)
+  document.addEventListener('click', function(e) {
+    const button = e.target.closest('.add-to-cart-btn');
+    if (!button) return;
+
+    const productId = button.dataset.productId;
+    const productName = button.dataset.productName;
+    const productPrice = parseFloat(button.dataset.productPrice);
+    const productImage = button.dataset.productImg;
+
+    // Buscar el selector de talla/opción en el contexto del botón (card o modal)
+    const context = button.closest('.card, .modal-content');
+    let productSize = 'N/A'; // Valor por defecto para productos sin opciones
+
+    if (context) {
+      const sizeSelect = context.querySelector('.size-select');
+      if (sizeSelect) {
+        productSize = sizeSelect.value;
+        if (!productSize) {
+          alert('Por favor, selecciona una opción');
+          return; // Detener si se requiere una opción pero no se ha seleccionado
+        }
+      }
+    }
+    
+    addToCart(productId, productName, productPrice, productImage, productSize);
+
+    // Si el botón estaba en la modal, cerrarla después de añadir el producto
+    if (button.closest('.modal-content')) {
+      const modal = document.getElementById('product-modal');
+      if (modal) {
+        modal.style.display = 'none';
+      }
+    }
   });
   
   // Configurar eventos para mostrar productos en modal
-  document.querySelectorAll('.show-product').forEach(enlace => {
-    enlace.addEventListener('click', function() {
-      const productId = this.dataset.productId;
-      const producto = productos.find(p => p.id === productId);
-      
-      if (!producto) return;
-      const boton = `<span class="close-modal">&times;</span>`;
-      const contenido = displayProduct(producto, true);
-      document.getElementById("modal-content").innerHTML = boton + contenido;
+  document.addEventListener('click', function(e) {
+    const showProductLink = e.target.closest('.show-product, .show-product-db');
+    if (showProductLink) {
+      const productId = showProductLink.dataset.productId;
+      const productName = showProductLink.dataset.productName;
+      const productPrice = parseFloat(showProductLink.dataset.productPrice);
+      const productImage = showProductLink.dataset.productImg;
+      const productDescription = showProductLink.dataset.productDescription || 'Descripción no disponible.';
+
+      const modalContent = document.getElementById('modal-content');
+      if (!modalContent) return;
+
+      modalContent.innerHTML = `
+        <span class="close-modal">&times;</span>
+        <img src="${productImage}" alt="${productName}" style="max-width: 100%;">
+        <h3>${productName}</h3>
+        <p>${productDescription}</p>
+        <div class="buy-options">
+          <button
+            class="modal-add-to-cart-btn add-to-cart-btn"
+            data-product-id="${productId}"
+            data-product-name="${productName}"
+            data-product-price="${productPrice}"
+            data-product-img="${productImage}">
+            Añadir al Carrito - ${productPrice.toFixed(2)}€
+          </button>
+        </div>
+      `;
+
       modal.style.display = 'flex';
-      
-      // Agregar evento al botón de la modal
-      const modalAddToCartBtn = document.querySelector('.modal-add-to-cart-btn');
-      
-      if (modalAddToCartBtn) {
-        modalAddToCartBtn.addEventListener('click', function() {
-          const productId = this.dataset.productId;
-          const productName = this.dataset.productName;
-          const productPrice = parseFloat(this.dataset.productPrice);
-          const productImage = this.dataset.productImg;
-          
-          // Obtener talla seleccionada
-          const sizeSelect = document.querySelector(`#modal-size-select-${productId}`);
-          const productSize = sizeSelect ? sizeSelect.value : '';
-          
-          if (!productSize) {
-            alert('Por favor, selecciona una opción');
-            return;
-          }
-          
-          addToCart(productId, productName, productPrice, productImage, productSize);
-          modal.style.display = 'none'; // Cerrar modal tras añadir
-        });
-      }
-      
-      document.querySelector('.close-modal').addEventListener('click', () => {
-        modal.style.display = 'none';
-      });
-    });
+    }
+
+    if (e.target.matches('.close-modal')) {
+      const modal = e.target.closest('#product-modal');
+      if(modal) modal.style.display = 'none';
+    }
   });
   
   // Cerrar modal haciendo clic fuera
@@ -389,4 +471,46 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Cargar carrito al iniciar
   loadCart();
+
+  // Funcionalidad de registro
+  const registerBtn = document.getElementById('register-btn');
+  const registerModal = document.getElementById('register-modal');
+  const closeRegisterModal = document.getElementById('close-register-modal');
+  const registerForm = document.getElementById('register-form');
+
+  registerBtn.addEventListener('click', () => {
+    registerModal.style.display = 'block';
+  });
+
+  closeRegisterModal.addEventListener('click', () => {
+    registerModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === registerModal) {
+      registerModal.style.display = 'none';
+    }
+  });
+
+  registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(registerForm);
+
+    fetch('register.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+      alert(data);
+      if (data.includes('exitosamente')) {
+        registerModal.style.display = 'none';
+        registerForm.reset();
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Hubo un error al registrar el usuario.');
+    });
+  });
 });
