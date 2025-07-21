@@ -8,7 +8,7 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 $availability = isset($_GET['availability']) ? $_GET['availability'] : '';
 $sortBy = isset($_GET['sortBy']) ? $_GET['sortBy'] : '';
 
-$sql = "SELECT id, nombre, precio, foto, disponible FROM productos WHERE 1=1";
+$sql = "SELECT id, nombre, precio, foto, disponible, amazon_url FROM productos WHERE 1=1";
 
 if (!empty($category)) {
     $sql .= " AND categoria = ?";

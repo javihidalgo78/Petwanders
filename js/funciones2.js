@@ -359,6 +359,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </button>
               </div>
               <div class="amazon-link">
+                ${product.amazon_url ? `<a href="${product.amazon_url}" target="_blank"><img src="images/amazon-icon.png" alt="Comprar en Amazon" class="amazon-icon"></a>` : ''}
               </div>
             </div>
           `;
