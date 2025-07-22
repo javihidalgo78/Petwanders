@@ -16,10 +16,15 @@
  <!-- Barra de navegación -->
  
   <nav class="header">
-    
+    <a href="#" class="nav-logo-link">
+      <img src="Images/LogoPW.JPEG" alt="Inicio" class="nav-logo">
+    </a>
     <a href="#conocenos">Conócenos</a>
     <a href="#tienda">Tienda</a>
     <a href="#contacto">Contacto</a>
+    <a href="https://www.amazon.es/stores/PetWandersbyJHL/page/666D0FAD-15CE-44AF-AD5C-76B665011CE7?is_byline_deeplink=true&deeplink=666D0FAD-15CE-44AF-AD5C-76B665011CE7&redirect_store_id=666D0FAD-15CE-44AF-AD5C-76B665011CE7&lp_asin=B0F1V1VRL4&ref_=ast_bln" target="_blank">
+      <img src="images/amazon-icon.png" alt="Tienda Amazon" class="nav-amazon-logo">
+    </a>
     <!-- Ícono del carrito -->
   <div class="cart-icon" id="cart-icon">
     <i class="fa fa-shopping-cart"></i>
@@ -114,6 +119,10 @@
           <input type="checkbox" id="availability-filter" checked>
           Mostrar solo disponibles
         </label>
+        <label>
+          <input type="checkbox" id="amazon-filter">
+          Disponible en Amazon
+        </label>
         <button id="search-button">Buscar</button>
       </div>
 
@@ -152,6 +161,7 @@
 <!-- Enlace al JS -->
 <script type="module" src="js/productos.js"></script>
 <script type="module" src="js/funciones2.js"></script>
+<script src="js/main.js"></script>
   <!-- Enlace al JS -->
 
 </body>
