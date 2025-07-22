@@ -47,7 +47,9 @@ CREATE TABLE `productos` (
   `categoria` varchar(60) CHARACTER SET utf32 COLLATE utf32_spanish2_ci NOT NULL,
   `precio` decimal(10,2) NOT NULL,
   `disponible` tinyint(1) NOT NULL,
-  `foto` varchar(60) NOT NULL
+  `foto` varchar(60) NOT NULL,
+  `descripcion` text COLLATE utf8mb4_spanish2_ci DEFAULT NULL,
+  `caracteristicas` text COLLATE utf8mb4_spanish2_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

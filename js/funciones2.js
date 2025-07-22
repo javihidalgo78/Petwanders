@@ -320,13 +320,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const categoryFilter = document.getElementById('category-filter');
   const sortByPrice = document.getElementById('sort-by-price');
   const availabilityFilter = document.getElementById('availability-filter');
+  const amazonFilter = document.getElementById('amazon-filter');
 
   function fetchProducts() {
     const category = categoryFilter.value;
     const sortBy = sortByPrice.value;
     const availability = availabilityFilter.checked;
+    const amazonOnly = amazonFilter.checked;
 
-    let url = `get_products.php?availability=${availability}`;
+    let url = `get_products.php?availability=${availability}&amazonOnly=${amazonOnly}`;
     if (category) {
       url += `&category=${category}`;
     }
@@ -340,6 +342,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const container = document.getElementById('productos-container');
         container.innerHTML = ''; // Limpiar contenedor
         data.forEach(product => {
+          console.log(product)
           const card = document.createElement('div');
           card.className = 'card';
           card.innerHTML = `
@@ -359,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </button>
               </div>
               <div class="amazon-link">
-                ${product.amazon_url ? `<a href="${product.amazon_url}" target="_blank"><img src="images/amazon-icon.png" alt="Comprar en Amazon" class="amazon-icon"></a>` : ''}
+                ${product.amazonUrl ? `<a href="${product.amazonUrl}" target="_blank"><img src="images/amazon-icon.png" alt="Comprar en Amazon" class="amazon-icon"></a>` : ''}
               </div>
             </div>
           `;

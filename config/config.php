@@ -2,7 +2,7 @@
 $host = $_SERVER['HTTP_HOST'];
 $serverName = $_SERVER['SERVER_NAME'];
 
-if ($host === 'localhost' || 
+if (php_sapi_name() === 'cli' || $host === 'localhost' || 
     $host === '127.0.0.1' || 
     $serverName === 'localhost' || 
     $serverName === '127.0.0.1' ||
