@@ -59,8 +59,15 @@ html {
 }
 
 .nav-amazon-logo {
-  height: 70px; /* Ajusta la altura según sea necesario */
+  height: 100px; /* Ajusta la altura según sea necesario */
   width: auto;
+  width: 100px;
+  transition: transform 0.2s ease;
+  position: relative;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  align-content: center;
 }
 
 /* Banner con logo */
@@ -998,7 +1005,7 @@ nav a {
 }
 
 .amazon-icon {
-  width: 100px;
+  width: 200px;
   transition: transform 0.2s ease;
   position: relative;
   margin-bottom: 1rem;
@@ -1008,7 +1015,7 @@ nav a {
 }
 
 .amazon-icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.4);
 }
 
 /* Modal básico */
