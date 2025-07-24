@@ -712,7 +712,7 @@ nav a {
      /* Estilos para el carrito de compras */
     .cart-icon {
       position: fixed;
-      top: 64px;
+      top: 74px;
       right: 20px;
       background-color: #fff;
       border-radius: 50%;
@@ -1338,6 +1338,11 @@ h1 {
 /* Estilos para el botón de registro */
 .user-actions {
   margin-left: 20px;
+  display: flex;
+}
+
+.user-actions button {
+  margin-left: 10px;
 }
 
 #register-btn {
