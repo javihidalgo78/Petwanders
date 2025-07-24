@@ -11,6 +11,7 @@ $amazonOnly = isset($_GET['amazonOnly']) ? $_GET['amazonOnly'] : '';
 
 $sql = "SELECT id, nombre, precio, foto, disponible, amazonUrl FROM productos WHERE 1=1";
 
+
 if (!empty($category)) {
     $sql .= " AND categoria = ?";
 }
