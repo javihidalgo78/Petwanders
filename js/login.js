@@ -1,4 +1,6 @@
 
+import { clearCart } from './funciones2.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
@@ -58,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
     logoutBtn.addEventListener('click', () => {
         sessionStorage.removeItem('userLoggedIn');
         checkSession();
+        clearCart();
         alert('Has cerrado sesión');
     });
 

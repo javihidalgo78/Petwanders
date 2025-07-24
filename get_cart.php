@@ -11,18 +11,25 @@ if (isset($_SESSION['usuario_id'])) {
         die(json_encode([]));
     }
 
-    $sql = "SELECT producto_id, cantidad FROM carrito WHERE usuario_id = ?";
+    $sql = "SELECT c.id_producto, c.cantidad, c.talla, p.nombre, p.precio, p.foto FROM carrito c JOIN productos p ON c.id_producto = p.id WHERE c.id_usuario = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('i', $usuario_id);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    $carrito = [];
+    $cart = [];
     while ($row = $result->fetch_assoc()) {
-        $carrito[] = $row;
+        $cart[] = [
+            'id' => $row['id_producto'],
+            'name' => $row['nombre'],
+            'price' => $row['precio'],
+            'image' => 'Images/' . $row['foto'],
+            'size' => $row['talla'],
+            'quantity' => $row['cantidad']
+        ];
     }
 
-    echo json_encode($carrito);
+    echo json_encode($cart);
 
     $stmt->close();
     $conn->close();

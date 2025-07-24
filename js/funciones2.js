@@ -9,18 +9,37 @@ let cart = [];
 
 // PASO 3: Definir todas las funciones del carrito a nivel global
 
-// Cargar carrito desde localStorage
+// Cargar carrito desde el servidor o localStorage
 function loadCart() {
-  const savedCart = localStorage.getItem('petwandersCart');
-  if (savedCart) {
-    cart = JSON.parse(savedCart);
-    updateCartUI();
-  }
+    if (sessionStorage.getItem('userLoggedIn')) {
+        fetch('get_cart.php')
+            .then(response => response.json())
+            .then(data => {
+                cart = data;
+                updateCartUI();
+            });
+    } else {
+        const savedCart = localStorage.getItem('petwandersCart');
+        if (savedCart) {
+            cart = JSON.parse(savedCart);
+            updateCartUI();
+        }
+    }
 }
 
-// Guardar carrito en localStorage
+// Guardar carrito en el servidor o localStorage
 function saveCart() {
-  localStorage.setItem('petwandersCart', JSON.stringify(cart));
+    if (sessionStorage.getItem('userLoggedIn')) {
+        fetch('save_cart.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(cart)
+        });
+    } else {
+        localStorage.setItem('petwandersCart', JSON.stringify(cart));
+    }
 }
 
 // Actualizar la interfaz del carrito
@@ -148,6 +167,13 @@ function decreaseQuantity(index) {
 // Eliminar producto
 function removeItem(index) {
   cart.splice(index, 1);
+  updateCartUI();
+  saveCart();
+}
+
+// Limpiar el carrito
+export function clearCart() {
+  cart = [];
   updateCartUI();
   saveCart();
 }
