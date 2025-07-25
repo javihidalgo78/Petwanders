@@ -20,12 +20,12 @@ if (isset($_SESSION['usuario_id'])) {
     $cart = [];
     while ($row = $result->fetch_assoc()) {
         $cart[] = [
-            'id' => $row['id_producto'],
+            'id' => (int)$row['id_producto'],
             'name' => $row['nombre'],
-            'price' => $row['precio'],
+            'price' => (float)$row['precio'],
             'image' => 'Images/' . $row['foto'],
             'size' => $row['talla'],
-            'quantity' => $row['cantidad']
+            'quantity' => (int)$row['cantidad']
         ];
     }
 

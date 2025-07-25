@@ -1,5 +1,5 @@
 
-import { clearCart } from './funciones2.js';
+import { clearCart, loadCartFromData } from './funciones2.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     const loginBtn = document.getElementById('login-btn');
@@ -49,6 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 checkSession();
                 loginModal.style.display = 'none';
                 alert('Inicio de sesión exitoso');
+                if (data.cart) {
+                    localStorage.setItem('petwandersCart', JSON.stringify(data.cart));
+                    loadCartFromData(data.cart);
+                }
             } else {
                 alert(data.message);
             }

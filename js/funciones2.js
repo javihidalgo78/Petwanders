@@ -178,6 +178,11 @@ export function clearCart() {
   saveCart();
 }
 
+export function loadCartFromData(cartData) {
+    cart = cartData;
+    updateCartUI();
+}
+
 // Mostrar carrito
 function showCart() {
   cartContainer.classList.add('active');

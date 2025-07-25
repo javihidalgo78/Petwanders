@@ -23,7 +23,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (password_verify($password, $usuario['password'])) {
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['usuario_nombre'] = $usuario['nombre'];
-            echo json_encode(['success' => true, 'message' => 'Login correcto']);
+
+            // Fetch cart for the user
+            $cart_sql = "SELECT c.id_producto, c.cantidad, c.talla, p.nombre, p.precio, p.foto FROM carrito c JOIN productos p ON c.id_producto = p.id WHERE c.id_usuario = ?";
+            $cart_stmt = $conn->prepare($cart_sql);
+            $cart_stmt->bind_param('i', $usuario['id']);
+            $cart_stmt->execute();
+            $cart_result = $cart_stmt->get_result();
+
+            $cart = [];
+            while ($row = $cart_result->fetch_assoc()) {
+                $cart[] = [
+                    'id' => (int)$row['id_producto'],
+                    'name' => $row['nombre'],
+                    'price' => (float)$row['precio'],
+                    'image' => 'Images/' . $row['foto'],
+                    'size' => $row['talla'],
+                    'quantity' => (int)$row['cantidad']
+                ];
+            }
+            $cart_stmt->close();
+
+            echo json_encode(['success' => true, 'message' => 'Login correcto', 'cart' => $cart]);
         } else {
             echo json_encode(['success' => false, 'message' => 'Contraseña incorrecta']);
         }
