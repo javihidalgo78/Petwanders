@@ -1,8 +1,13 @@
 <?php
 session_start();
-if (session_status() == PHP_SESSION_ACTIVE) {
-//Borrar todos los datos de la sesión
+
+// Borrar todos los datos de la sesión
 session_unset();
-//Destruye la sesión
+
+// Destruye la sesión
 session_destroy();
-}
+
+// Redirigir al usuario a la página de login
+header("Location: login.php");
+exit();
+?>
