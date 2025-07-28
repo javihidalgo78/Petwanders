@@ -289,10 +289,6 @@ font-weight: 500;
 transition: all 0.2s ease-in-out;
 }
 
-form{
-    display:none;
-}
-
 form {
     max-width: 500px;
     margin: 1rem auto;

@@ -6,7 +6,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$result = $conn->query("SELECT * FROM productos");
+$category = $_GET['category'];
+
+$sql = "SELECT * FROM productos WHERE categoria = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $category);
+$stmt->execute();
+$result = $stmt->get_result();
 
 $products = [];
 while ($row = $result->fetch_assoc()) {

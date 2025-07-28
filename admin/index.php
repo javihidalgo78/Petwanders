@@ -38,54 +38,9 @@ if (empty($_SESSION['csrf_token'])) {
         }
         ?>
 
-        <div class="panelCrear">
-            <button id="crear" class="btn-crear">Crear Nuevo Producto</button>
+        <div class="panel-links">
+            <a href="products/index.php" class="btn">Gestionar Productos</a>
+            <a href="users/index.php" class="btn">Gestionar Usuarios</a>
         </div>
-
-        <!-- Formulario de creación de productos -->
-        <form action="process_upload.php" method="POST" enctype="multipart/form-data" id="product-form">
-            <h2>☘️ Nuevo Producto</h2>
-            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-
-            <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
-
-            <div class="form-group">
-                <label for="descripcion">Descripción</label>
-                <textarea name="descripcion" id="descripcion" rows="6" placeholder="Escribe la descripción del producto." required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="precio">Precio</label>
-                <input type="number" step="0.01" id="precio" name="precio" required>
-            </div>
-
-            <div class="form-group">
-                <label for="categoria">Categoría</label>
-                <input type="text" id="categoria" name="categoria" required>
-            </div>
-
-            <div class="form-group">
-                <label for="foto">Foto</label>
-                <input type="file" id="foto" name="foto" accept="image/*" required>
-            </div>
-
-            <button type="submit" name="submit">Guardar Producto</button>
-        </form>
-    </div>
-
-    <script>
-        // Script para mostrar/ocultar el formulario
-        document.getElementById('crear').addEventListener('click', function() {
-            var form = document.getElementById('product-form');
-            if (form.style.display === 'none' || form.style.display === '') {
-                form.style.display = 'block';
-            } else {
-                form.style.display = 'none';
-            }
-        });
-    </script>
 </body>
 </html>

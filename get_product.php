@@ -6,15 +6,17 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$result = $conn->query("SELECT * FROM productos");
+$id = $_GET['id'];
 
-$products = [];
-while ($row = $result->fetch_assoc()) {
-    $products[] = $row;
-}
+$sql = "SELECT * FROM productos WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+$product = $result->fetch_assoc();
 
 header('Content-Type: application/json');
-echo json_encode($products);
+echo json_encode($product);
 
 $conn->close();
 ?>

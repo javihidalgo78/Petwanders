@@ -1,21 +1,20 @@
 <?php
-require_once 'config/database.php';
+require_once '../../config/database.php';
 
-$database = new Database();
-$conexion = $database->getConexion();
-
-$sql = "SELECT DISTINCT categoria FROM productos ORDER BY categoria ASC";
-$result = $conexion->query($sql);
-
-$categories = [];
-
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $categories[] = $row;
-    }
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
+$result = $conn->query("SELECT DISTINCT categoria FROM productos");
+
+$categories = [];
+while ($row = $result->fetch_assoc()) {
+    $categories[] = $row['categoria'];
+}
+
+header('Content-Type: application/json');
 echo json_encode($categories);
 
-$database->close();
+$conn->close();
 ?>
